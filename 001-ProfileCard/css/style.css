@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #223440;
+    }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    -webkit-text-decoration-skip: ink;
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* finish reset */
+.card-container {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    gap: 3rem;
+}
+.card0 {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 3px 3px 17px -6px rgba(0,0,0,0.75);
+    border-radius: 20px;
+    border: 1px solid whitesmoke;
+    background-color: rgba(22, 31, 38, 1);
+    background-image: linear-gradient(180deg, rgba(22, 31, 38, 1) 0%, rgba(66, 80, 89, 1) 100%);
+}
+
+.card__profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 2rem;
+    transition: 1s;
+    border-radius: 50%;
+    border: 2px solid #555555;
+}
+
+.card__profile-photo:hover {
+    transform: scale(1.1);
+}
+.card__text {
+    font-size: 16px;
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 2rem;
+}
+
+.card__text--name {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-size: 1.5em;
+}
+
+.card__text--description {
+    font-size: 0.8em;
+    color: #878B8C;
+}
+
+.card__btn {
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #2D3D86;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    background-color: rgba(22, 31, 38, 1);
+    background-image: linear-gradient(180deg, rgba(22, 31, 38, 1) 0%, rgba(66, 80, 89, 1) 100%);
+    transition: 0.5s;
+    margin-bottom: 2rem;
+}
+.card__btn:hover {
+    background-image: none;
+    background-color: rgb(66, 80, 89);
+}
+
+.card__social{
+    align-self: flex-start;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100px);
+    overflow: hidden;
+}
+.card__social--link {
+    display: block;
+    font-size: 1.5rem;
+    margin: 0.75rem;
+    transform: translateX(-3rem);
+}
+
+.card__social--link i {
+    transition: 0.5s;
+}
+
+.card__social--link i:hover {
+    transform: scale(1.2);
+}
+
+.card__social--link:nth-child(1){
+    color: #3b5998;
+    transition: .2s;
+}
+
+.card__social--link:nth-child(2){
+    color: #ff0191;
+    transition: .4s;
+}
+
+.card__social--link:nth-child(3){
+    color: #171515;
+    transition: .6s;
+}
+
+.card__social--link:nth-child(4){
+    color: #00acee;
+    transition: .8s;
+}
+
+.card0:hover .card__social--link {
+    transform: translateX(-0.01rem);
+}
