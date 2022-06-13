@@ -13,7 +13,7 @@
 
 // Rozwiązanie: Najwieksza wartość z tablicy - Najmniejsza wartość z tablicy
 // następnie róznica długości liczb i wartości wyżej obliczonych
-// dodać jeden żeby się zgadzało :)
+// dodać jeden żeby się zgadzało :)s
 
 function solution(statues) {
     let maxValue = Math.max.apply(null, statues);
