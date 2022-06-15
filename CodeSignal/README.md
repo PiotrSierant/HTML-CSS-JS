@@ -5,7 +5,6 @@ Given a sequence of integers as an array, determine whether it is possible to ob
 Note: 
 _sequence a0, a1, ..., an is considered to be a strictly increasing if a0 < a1 < ... < an. Sequence containing only one element is also considered to be strictly increasing._
 
-
 * For sequence = **[1, 3, 2, 1]**, the output should be
 **solution(sequence) = false.**
 There is no one element in this array that can be removed in order to get a strictly increasing sequence.
@@ -53,7 +52,7 @@ function solution(statues) {
 }
 ```
 
-# Check palindrom
+# Check Palindrom
 ___
 Given the string, check if it is a palindrome.
 
@@ -82,7 +81,6 @@ function palindrom2(inputString) {
 ```
 
 # Adjacent Elements Product
-
 ___
 Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
 
@@ -103,5 +101,61 @@ function solution(inputArray) {
         }
     }
     return result;
+}
+```
+
+# All Longest Strings
+___
+Given an array of strings, return another array containing all of its longest strings.
+
+* For **_inputArray = ["aba", "aa", "ad", "vcd", "aba"]_**, the output should be
+**_solution(inputArray) = ["aba", "vcd", "aba"]_**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/AllLongestStrings.js)
+
+```javascript
+function solution(inputArray) {
+  let arr = inputArray;
+  let longest = 0;
+  let longestArr = [];
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i].length >= longest) {
+      longest = arr[i].length;
+    }
+  }
+  for(let j = 0; j < arr.length; j++) {
+    if(arr[j].length === longest) {
+      longestArr.push(arr[j]);
+    }
+  }
+  return longestArr;
+}
+```
+
+# Common Character Count
+___
+Given two strings, find the number of common characters between them.
+
+For _**s1 = "aabcc"**_ and _**s2 = "adcaa"**_, the output should be
+**_solution(s1, s2) = 3._**
+
+Strings have _**3**_ common characters - _**2 "a"s**_  and _**1 "c"**_.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/commonCharacterCount.js)
+
+```javascript
+function solution(s1, s2) {
+  let string1 = [...s1].sort();
+  let string2 = [...s2].sort();
+  let total = 0;
+  for (let i = 0; i < string1.length; i++) {
+    for (let j = 0; j < string2.length; j++) {
+      if (string1[i] === string2[j]) {
+        total += 1;
+        i++;
+      }
+    }
+  }
+  return total
 }
 ```
