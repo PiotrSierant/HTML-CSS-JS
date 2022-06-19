@@ -159,3 +159,53 @@ function solution(s1, s2) {
   return total
 }
 ```
+
+# Shape Area
+___
+Below we will define an **n**-interesting polygon. Your task is to find the area of a polygon for a given **n.**
+
+A **1**-interesting polygon is just a square with a side of length **1**. An n-interesting polygon is obtained by taking the **n - 1**-interesting polygon and appending **1**-interesting polygons to its rim, side by side. You can see the **1-, 2-, 3-** and **4**-interesting polygons in the picture below.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/shapeArea.js)
+
+```javascript
+function solution(n) {
+  return 2*n*(n-1) +1;
+}
+```
+
+# Matrix Elements Sum
+___
+After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there's a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, **or any of the rooms below any of the free rooms.**
+
+Given **matrix**, a rectangular matrix of integers, where each value represents the cost of the room, your task is to return the total sum of all rooms that are suitable for the CodeBots (ie: add up all the values that don't appear below a **0**).
+
+* For
+```javascript
+matrix = 
+[[0, 1, 1, 2],
+[0, 5, 0, 0],
+[2, 0, 3, 3]]
+```
+the output should be **_solution(matrix) = 9_**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/matrixElementsSum.js)
+
+```javascript
+function matrixElementsSum(matrix) {
+  let sum = 0;
+  for (let row = 0; row < matrix.length; row++) {
+    const currRow = matrix[row];
+    for (let col = 0; col < currRow.length; col++) {
+      if (currRow[col] === 0) {
+        if (row + 1 < matrix.length) {
+          matrix[row + 1][col] = 0;
+        }
+      } else {
+        sum += currRow[col];
+      }
+    }
+  }
+  return sum;
+}
+```
