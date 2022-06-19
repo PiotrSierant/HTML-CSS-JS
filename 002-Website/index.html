@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Study HTML, CSS">
+    <meta name="keywords" content="HTML, CSS">
+
+    <title>CompanyName - Description</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link type="image/png" sizes="96x96" rel="icon" href="images/logo.png">
+
+    <script src="js/app.js"></script>
+
+</head>
+<body>
+    <header class="header">
+        <nav class="header__navigation">
+            <img class="header__navigation__logo" src="images/logo.png" alt="website logo">
+            <button class="header__navigation__btn header__navigation__btn--open" onclick="openNav()"><span>&#9776</span></button>
+            <menu class="header__navigation__menu">
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Gallery">Gallery</a></li>
+                <li><a href="#Information">Information</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </menu>
+        </nav>
+        <div id="myNav" class="header__overlay">
+            <button class="header__navigation__btn header__overlay__btn--close" onclick="closeNav()">&times;</button>
+            <div class="header__overlay__content">
+                <a href="#Home">Home</a>
+                <a href="#About">About</a>
+                <a href="#Gallery">Gallery</a>
+                <a href="#Information">Information</a>
+                <a href="#Contact">Contact</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="Home">
+            <div class="hero__content">
+                <h1 class="hero__content--title">Discover the world of penguins!</h1>
+                <h2 class="hero__content--subtitle">Take part in a great journey of penguins and see their adventures in breathtaking landscapes.</h2>
+                <button class="hero__content--button" type="button">
+                    <i class="fa-solid fa-circle-chevron-down"></i>Learn more about penguin
+                </button>
+            </div>
+        </section>
+        <section class="newsec"></section>
+        <section class="newsec"></section>
+    </main>
+</body>
+</html>
