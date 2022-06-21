@@ -1,5 +1,33 @@
 # Split Strings
 ___
+Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
+
+Examples:
+
+* `"the-stealth-warrior"` gets converted to `"theStealthWarrior"`
+* `"The_Stealth_Warrior"` gets converted to `"TheStealthWarrior"`
+
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/Codewars/js/ConvertStringToCamelCase.js)
+
+```javascript
+function toCamelCase(str){
+    let newStr = str.split(/[^A-Z\d]/ig);
+    let CamelCase = [];
+    for (let i = 0; i < newStr.length; i++) {
+        if (typeof newStr[i][0] === "string") {
+            if ( i === 0 ) {
+                CamelCase.push(newStr[i][0] + newStr[i].substring(1));
+            } else {
+                CamelCase.push(newStr[i][0].toUpperCase() + newStr[i].substring(1));
+            }
+        }
+    }
+    return CamelCase.join("");
+}
+```
+# Split Strings
+___
 Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
 
 
