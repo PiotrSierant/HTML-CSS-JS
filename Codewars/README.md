@@ -1,24 +1,28 @@
-# Disemvowel Trolls
+# Split Strings
 ___
-Trolls are attacking your comment section!
+Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
 
-A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
 
-Your task is to write a function that takes a string and return a new string with all vowels removed.
+* **'abc'** =>  **_['ab', 'c_']_**
+* **'abcdef'** => **_['ab', 'cd', 'ef']_**
 
-For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
-
-Note: 
-* For this kata y isn't considered a vowel.
-
-[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/Codewars/js/DisemvowelTrolls.js)
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/Codewars/js/SplitStrings.js)
 
 ```javascript
-function disemvowel(str) {
-    return str.replace(/[aoieu]/gi,"");
+function solution(str){
+    const array_str = [];
+    for (let i = 0; i < str.length; i++) {
+        console.log(i, i+2);
+        let new_str = str.substring(i, i+2);
+        if (new_str.length === 1) {
+            array_str.push(new_str + "_");
+        } else {
+            array_str.push(new_str);
+        }
+        i++
+    }
+    return array_str
 }
-const sentence =  "This website is for losers LOL!";
-console.log(disemvowel(sentence));
 ```
 
 # Highest and Lowest
