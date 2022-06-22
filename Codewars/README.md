@@ -1,35 +1,33 @@
 # Convert string to camel case
 ___
-Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
+You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
 
 Examples:
 
-* `"the-stealth-warrior"` gets converted to `"theStealthWarrior"`
-* `"The_Stealth_Warrior"` gets converted to `"TheStealthWarrior"`
+* **_[2, 4, 0, 100, 4, 11, 2602, 36]_**
+Should return: **11 (the only odd number)**
+
+* **_[160, 3, 1719, 19, 11, 13, -21]_**
+Should return: **160 (the only even number)**
 
 
-[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/Codewars/js/ConvertStringToCamelCase.js)
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/Codewars/js/FindTheParityOutlier.js)
 
 ```javascript
-function toCamelCase(str){
-    let newStr = str.split(/[^A-Z\d]/ig);
-    let CamelCase = [];
-    for (let i = 0; i < newStr.length; i++) {
-        if (typeof newStr[i][0] === "string") {
-            if ( i === 0 ) {
-                CamelCase.push(newStr[i][0] + newStr[i].substring(1));
-            } else {
-                CamelCase.push(newStr[i][0].toUpperCase() + newStr[i].substring(1));
-            }
-        }
+function findOutlier(integers){
+    let oddNumbers = [];
+    let evenNumbers = [];
+    for (let i = 0; i < integers.length; i++) {
+        if (integers[i] % 2 === 0) { oddNumbers.push(integers[i]); } else { evenNumbers.push(integers[i]); }
     }
-    return CamelCase.join("");
+    if (oddNumbers.length > evenNumbers.length) { return evenNumbers[0] } else { return oddNumbers[0] }
 }
 ```
-# Split Strings
+# Find The Parity Outlier
 ___
 Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
 
+Examples:
 
 * **'abc'** =>  **_['ab', 'c_']_**
 * **'abcdef'** => **_['ab', 'cd', 'ef']_**
