@@ -1,9 +1,3 @@
-<img alt="Logo" height="200" src="https://raw.githubusercontent.com/PiotrSierant/HTML-CSS-JS/main/logo.png" title="Logo" width="1080"/>
+# Craze Features
 
-# Various projects using HTML, CSS and JavaScript.
-
-The repository contains various practice files, my ideas and execution. Everything for the purpose of education.
-
-* [codewars.com - task](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/Codewars)
-
-* [codesignal.com - task](https://github.com/PiotrSierant/HTML-CSS-JS/tree/main/CodeSignal)
+<img alt="Logo" src="https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/003-Craze%20Features/landing_page.jpg">
