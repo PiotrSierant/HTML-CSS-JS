@@ -1,0 +1,110 @@
+@font-face {
+    font-family: "My-font";
+    src: local("OpenSans-Bold"),
+    url("../fonts/opensans-bold-webfont.woff2") format("woff2"),
+    url("../fonts/opensans-bold-webfont.woff") format("woff");
+}
+@font-face {
+    font-family: "My-font-2";
+    src: local("OpenSans-Regular");
+    url("../fonts/opensans-regular-webfont.woff2") format("woff2"),
+    url("../fonts/opensans-regular-webfont.woff") format("woff");
+}
+@font-face {
+    font-family: "My-font-3";
+    src: local("OpenSans-Light");
+    url("../fonts/opensans-light-webfont.woff2") format("woff2"),
+    url("../fonts/opensans-light-webfont.woff") format("woff");
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: My-font-2, sans-serif;
+}
+.header {
+    width: 100%;
+    height: auto;
+    background-image: url("../images/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    max-width: 930px;
+    height: 100%;
+}
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+.header__title {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.header__img {
+    padding-top: 100px;
+    width: 435px;
+    height: 507px;
+}
+.header__logo {
+    width: 200px;
+    height: 100px;
+}
+.header__description {
+    color: white;
+    font-size: 24px;
+}
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main__title {
+    font-size: 30px;
+    color: #232323;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.main_description {
+    font-size: 18px;
+    color: #838383;
+    text-align: center;
+    margin-bottom: 100px;
+}
+.main__box {
+    display: flex;
+    margin-bottom: 60px;
+}
+.article--title, .article--description {
+    text-align: center;
+}
+.article--title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #232323;
+}
+.article--description {
+    font-size: 16px;
+    color: #838383;
+    padding: 0 30px;
+}
+.article {
+    border-right: 1px solid #838383;
+}
+.article:nth-last-child(1) {
+    border: none;
+}
