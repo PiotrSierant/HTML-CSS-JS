@@ -1,6 +1,7 @@
 # Profile Card
 
-* Profile Card's
+I practiced: 
+* CSS
 * Hover social icon
 * Animate hover
 
