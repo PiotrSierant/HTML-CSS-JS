@@ -1,3 +1,28 @@
+# Jaden Casing Strings
+___
+Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below.
+
+Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+
+Example:
+
+* Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+* Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/Codewars/js/JadenCasingStrings.js)
+
+```javascript
+String.prototype.toJadenCase = function () {
+    let CamelCase = [];
+    let words = this.toLowerCase().split(' ');
+    for(let i = 0; i < words.length; i++){
+        let word = words[i];
+        CamelCase.push(word[0].toUpperCase() + word.slice(1));
+    }
+    return CamelCase.join(" ");
+}
+```
 # Convert string to camel case
 ___
 You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
