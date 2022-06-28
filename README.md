@@ -4,6 +4,14 @@
 
 The repository contains various practice files, my ideas and execution. Everything for the purpose of education.
 
-* [codewars.com - task](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/Codewars)
+* [**_[JavaScript]_** codewars.com - task](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/Codewars)
 
-* [codesignal.com - task](https://github.com/PiotrSierant/HTML-CSS-JS/tree/main/CodeSignal)
+* [**_[JavaScript]_** codesignal.com - task](https://github.com/PiotrSierant/HTML-CSS-JS/tree/main/CodeSignal)
+* Check out other projects above :smirk:
+
+I practiced:
+* HTML
+* CSS
+* RWD
+* JAVASCRIPT
+* DOM JS
