@@ -13,5 +13,6 @@ I practiced:
 * HTML
 * CSS
 * RWD
+* SASS
 * JAVASCRIPT
 * DOM JS
