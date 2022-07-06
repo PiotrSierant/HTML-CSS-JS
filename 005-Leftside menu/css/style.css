@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Ubuntu&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+    font-family: 'Koulen', cursive;
+}
+
+body {
+    background-color: rgba(216, 212, 210, 1);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #323859;
+    box-shadow: -10px 0px 30px rgba(217, 213, 210, 1);
+}
+
+header nav .profile-image {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #D9D5D2;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px #D9D5D2;
+    margin: 2rem auto 0.75rem auto;
+    background-image: url(../images/profile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header nav p {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #D9D5D2;
+    padding-bottom: 1rem;
+    font-family: 'Koulen', cursive;
+    letter-spacing: 3px;
+}
+
+header nav hr {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #D9D5D2;
+}
+
+
+header nav menu li {
+    position: relative;
+    width: 100%;
+    list-style-type: none;
+    display: inline-flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+header nav menu li i {
+    color: #D9D5D2;
+    width: 25px;
+}
+
+header nav menu li a {
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+    color: #D9D5D2;
+    padding: 1.5rem 2rem 1.5rem 2rem;
+}
+
+header nav menu li:hover::before {
+    position: absolute;
+    content: '';
+    width: 3px;
+    height: 100%;
+    background-color: #D9D5D2;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: .5s;
+}
+
+header nav menu li:hover {
+    background-color: #404873;
+    transition: .5s;
+}
+
+.social-media-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.social-media-icon .fab {
+    color: #D9D5D2;
+    font-size: 1.5rem;
+    margin: 0.75rem;
+}
+
+.social-media-icon .fab:hover {
+    opacity: 0.7;
+    transition: 0.2s;
+}
+
+section {
+    min-height: 100vh;
+    height: auto;
+    min-width: 450px;
+    margin-left: 250px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home_section {
+    background-color: rgba(216, 212, 210, 1);
+}
+
+.about_section {
+    background-color: rgba(140, 129, 116, 1);
+}
+
+.offers_section {
+    background-color: rgba(58, 59, 63, 1);
+}
+
+.contact_section {
+    background-color: rgba(216, 212, 210, 1);
+}
+
+.other_section {
+    background-color: rgba(140, 129, 116, 1);
+}
+
+.home_section .h1-section span,
+.container h2,
+.container p {
+    color: #323859;
+}
+
+.about_section .h1-section span {
+    color: rgba(216, 212, 210, 1);
+}
+
+.offers_section .h1-section span {
+    color: rgba(140, 129, 116, 1);
+}
+
+.contact_section .h1-section span {
+    color: rgba(140, 129, 116, 1);
+}
+
+.other_section .h1-section span {
+    color: rgba(58, 59, 63, 1);
+}
+
+.h1-section {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    padding: 3rem 0 0 0;
+}
+
+
+.container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+}
+
+.container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding-top: 10rem;
+}
+
+.container p {
+    font-size: 1.2rem;
+    text-align: justify;
+    max-width: 100ch;
+}
+
+.container img {
+    float: right;
+    min-height: 450px;
+}
+
+.btn {
+    width: 160px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #323859;
+    border-color: rgba(58, 59, 63, 1);
+    color: rgba(216, 212, 210, 1);
+    margin-bottom: 1rem;
+}
+
+.btn:hover {
+    box-shadow: 0px 0px 10px rgba(140, 129, 116, 1);
+
+}
+
+.btn span {
+    font-size: 1rem;
+    margin: 0 auto;
+}
+
+.btn i {
+    font-size: 1rem;
+    padding-left: 0.5rem;
+    transition: transform .7s ease-in-out;
+}
+
+.btn i:hover {
+    transform: rotate(360deg);
+}
+
+
+
+footer {
+    background-color: rgba(58, 59, 63, 1);
+    height: 100vh;
+    margin-left: 250px;
+}
+
+
+
+.container-section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+}
+
+.container-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding-top: 10rem;
+}
+
+.container-section p {
+    font-size: 1.2rem;
+    text-align: justify;
+    max-width: 100ch;
+}
+
+.container-section .img-about {
+    float: left;
+    height: 300px;
+    width: 300px;
+    border-radius: 50% 30% 40% 33% / 30% 30% 50% 30%;
+    background-image: url(../images/profile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
