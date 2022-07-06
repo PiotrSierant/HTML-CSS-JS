@@ -8,6 +8,7 @@ I practiced:
 * HTML
 * CSS
 * RWD
+* JS
 
 <img alt="Logo" src="https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/002-Website/images/site_mobile.png" />
 <img alt="Logo" src="https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/002-Website/images/site_desktop.png" />
