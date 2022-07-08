@@ -1,4 +1,4 @@
-# Left Side Menu
+# freeCodeCamp Technical Documentation Page
 
 I practiced:
 * HTML
