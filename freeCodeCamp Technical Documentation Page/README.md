@@ -1,7 +1,7 @@
 # Left Side Menu
 
 I practiced:
-* HTML(form)
+* HTML
 * CSS
 * RWD
 
