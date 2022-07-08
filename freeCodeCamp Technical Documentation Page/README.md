@@ -1,7 +1,7 @@
-# Left Side Menu
+# freeCodeCamp Technical Documentation Page
 
 I practiced:
-* HTML(form)
+* HTML
 * CSS
 * RWD
 

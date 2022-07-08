@@ -1,7 +1,7 @@
-# Left Side Menu
+# freeCodeCamp Tribute Page
 
 I practiced:
-* HTML(form)
+* HTML
 * CSS
 
 Layout 
