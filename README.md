@@ -16,3 +16,6 @@ I practiced:
 * SASS
 * JAVASCRIPT
 * DOM JS
+
+Certificate:
+![](Settings-freeCodeCamp-org.png)
