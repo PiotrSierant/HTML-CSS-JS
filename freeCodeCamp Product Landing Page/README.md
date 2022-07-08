@@ -1,4 +1,4 @@
-# freeCodeCamp Survey Form
+# freeCodeCamp Product Landing Page
 
 I practiced:
 * HTML
