@@ -209,3 +209,37 @@ function matrixElementsSum(matrix) {
   return sum;
 }
 ```
+
+# isLucky
+___
+Ticket numbers usually consist of an even number of digits. A ticket number is considered lucky if the sum of the first half of the digits is equal to the sum of the second half.
+
+Given a ticket number **_n_**, determine if it's **_lucky_** or not.
+
+Example:
+* For **_n = 1230_**, the output should be
+_**solution(n) = true**_;
+* For **_n = 239017_**, the output should be
+**_solution(n) = false_**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/isLucky.js)
+
+```javascript
+function solution(n) {
+  let lengthNumber = n.toString().length;
+  let numberToString = n.toString();
+  let result = 0;
+  let result2 = 0;
+  if (lengthNumber % 2 === 0) {
+    let firstPart = numberToString.substring(0, lengthNumber / 2).split('');
+    let secondPart = numberToString.substring(lengthNumber / 2).split('');
+    for (let i = 0; i < firstPart.length; i++) {
+      result = result + +firstPart[i];
+      result2 = result2 + +secondPart[i];
+    }
+    return result === result2;
+  } else {
+    return false;
+  }
+}
+```
