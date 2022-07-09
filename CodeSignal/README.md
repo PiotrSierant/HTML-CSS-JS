@@ -1,3 +1,33 @@
+# Reverse in parentheses 
+___
+Write a function that reverses characters in (possibly nested) parentheses in the input string.
+Input strings will always be well-formed with matching ()s.
+
+Example:
+
+* For **_inputString = "(bar)"_**, the output should be
+**_solution(inputString) = "rab"_**;
+* For **_inputString = "foo(bar)baz"_**, the output should be
+**_solution(inputString) = "foorabbaz"_**;
+* For **_inputString = "foo(bar)baz(blim)"_**, the output should be
+**_solution(inputString) = "foorabbazmilb"_**;
+* For **_inputString = "foo(bar(baz))blim"_**, the output should be
+**_solution(inputString) = "foobazrabblim"_**.
+Because **_"foo(bar(baz))blim"_** becomes _**"foo(barzab)blim"**_ and then **_"foobazrabblim"_**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/reverseInParentheses.js)
+```javascript
+function solution(inputString) {
+    while(inputString.includes("(")) {
+        const findEnd = inputString.indexOf(")");
+        const findStart = inputString.lastIndexOf("(", findEnd);
+        const reverse = inputString.slice(findStart + 1, findEnd).split('').reverse().join('');
+        inputString = inputString.slice(0, findStart) + reverse + inputString.slice(findEnd + 1);
+    }
+    return inputString;
+}
+```
+
 # Sort by height
 ___
 Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees. People can be very tall!
