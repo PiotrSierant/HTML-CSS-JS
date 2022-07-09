@@ -1,3 +1,30 @@
+# Sort by height
+___
+Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees. People can be very tall!
+
+Example:
+* For **_a = [-1, 150, 190, 170, -1, -1, 160, 180]_**, the output should be
+**_solution(a) = [-1, 150, 160, 170, -1, -1, 180, 190]_**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/SortByHeight.js)
+
+```javascript
+function solution(a) {
+  let sorted = a.filter(x => {
+    if(x !== -1) {
+      return x;
+    }
+  }).sort((a, b) => (a-b));
+  let sortedCount = 0;
+  for(let i = 0; i < a.length; i++) {
+    if (a[i] !== -1) {
+      a[i] = sorted[sortedCount];
+      sortedCount = sortedCount + 1;
+    }
+  }
+  return a;
+}
+```
 # Almost Increasing Sequence
 ___
 Given a sequence of integers as an array, determine whether it is possible to obtain a strictly increasing sequence by removing no more than one element from the array.
