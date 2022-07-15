@@ -2,7 +2,7 @@
 ___
 implementation of the some function using the reduce function.
 
-[My solution - Click me and check the whole solution + comments ](link here)
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/JavaScript-OtherTask/implementSomeFunction.js)
 
 ```javascript
 function some(array, fn) {
