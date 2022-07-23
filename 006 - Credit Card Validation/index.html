@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Walidacja karty kredytowej</title>
+</head>
+<body>
+<main class="container">
+  <div class="card mt-4">
+    <div class="card-body">
+      <form class="form-card">
+        <div class="form-group">
+          <label for="cardNumber">Credit card number</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="cardNumber">
+            <div class="input-group-append">
+              <span class="input-group-text text-muted" style="font-size: 1.5rem" id="type">
+                <i class="fab fa-cc-visa mx-1" id="visa-icon"></i>
+                <i class="fab fa-cc-amex mx-1" id="amex-icon"></i>
+                <i class="fab fa-cc-mastercard mx-1" id="mastercard-icon"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+</body>
+<script src="js/app.js"></script>
+</html>
