@@ -18,4 +18,5 @@ I practiced:
 * DOM JS
 
 Certificate:
-![](Settings-freeCodeCamp-org.png)
+![JavaScript - Certificate](Settings-freeCodeCamp-org.png1)
+![RWD - Certificate](Settings-freeCodeCamp-org.png)
