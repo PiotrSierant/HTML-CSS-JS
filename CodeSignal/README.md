@@ -1,4 +1,59 @@
-# Reverse in parentheses 
+# Add border
+___
+Given a rectangular matrix of characters, add a border of asterisks(*) to it.
+
+Example:
+* For ```picture = ["abc","ded"]```
+
+The output should be solution(picture) = ```["*****",
+"*abc*",
+"*ded*",
+"*****"]```
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/addBorder.js)
+```javascript
+  function solution(picture) {
+    picture = picture.map(f=>'*'.concat(f,'*'))
+    let lengthRowArray = picture[0].length; // 5
+    picture.unshift(Array(lengthRowArray).fill('*').join('')); // dodaj na początek
+    picture.push(Array(lengthRowArray).fill('*').join(''))
+    return picture;
+  }
+```
+
+# Alternating sums
+___
+Several people are standing in a row and need to be divided into two teams. The first person goes into _team 1_, the second goes into _team 2_, the third goes into _team 1_ again, the fourth into _team 2_, and so on.
+
+Example:
+* For **_a = [50, 60, 60, 45, 70]_**, the output should be
+**_solution(a) = [180, 105]_**
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/alternatingSums.js)
+```javascript
+const solution = (a) => {
+  if(a.length === 1) {
+    a.push(0);
+    return a
+  }
+  let firstArray = [];
+  let secondArray = [];
+  a.forEach((element, index) => {
+    if(index % 2 === 0) {
+      firstArray.push(element);
+    } else {
+      secondArray.push(element);
+    }
+  })
+  if(firstArray.length > 0 && secondArray.length > 0) {
+    const resultFirstArray = firstArray.reduce((total, element) => total + element);
+    const secondArrayArray = secondArray.reduce((total, element) => total + element);
+    return [resultFirstArray, secondArrayArray];
+  }
+}
+```
+
+# Reverse in parentheses
 ___
 Write a function that reverses characters in (possibly nested) parentheses in the input string.
 Input strings will always be well-formed with matching ()s.
@@ -55,7 +110,7 @@ function solution(a) {
   return a;
 }
 ```
-# Almost Increasing Sequence
+# Almost increasing sequence
 ___
 Given a sequence of integers as an array, determine whether it is possible to obtain a strictly increasing sequence by removing no more than one element from the array.
 
@@ -88,7 +143,7 @@ function solution(sequence){
 }
 ```
 
-# Make Array Consecutive 2
+# Make array consecutive 2
 ___
 Ratiorg got statues of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by 1. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
 
@@ -109,7 +164,7 @@ function solution(statues) {
 }
 ```
 
-# Check Palindrom
+# Check palindrom
 ___
 Given the string, check if it is a palindrome.
 
@@ -137,7 +192,7 @@ function palindrom2(inputString) {
 }
 ```
 
-# Adjacent Elements Product
+# Adjacent elements product
 ___
 Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
 
@@ -161,7 +216,7 @@ function solution(inputArray) {
 }
 ```
 
-# All Longest Strings
+# All longest strings
 ___
 Given an array of strings, return another array containing all of its longest strings.
 
@@ -189,7 +244,7 @@ function solution(inputArray) {
 }
 ```
 
-# Common Character Count
+# Common character count
 ___
 Given two strings, find the number of common characters between them.
 
@@ -217,7 +272,7 @@ function solution(s1, s2) {
 }
 ```
 
-# Shape Area
+# Shape area
 ___
 Below we will define an **n**-interesting polygon. Your task is to find the area of a polygon for a given **n.**
 
@@ -231,7 +286,7 @@ function solution(n) {
 }
 ```
 
-# Matrix Elements Sum
+# Matrix elements sum
 ___
 After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there's a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, **or any of the rooms below any of the free rooms.**
 
@@ -267,7 +322,7 @@ function matrixElementsSum(matrix) {
 }
 ```
 
-# isLucky
+# is lucky
 ___
 Ticket numbers usually consist of an even number of digits. A ticket number is considered lucky if the sum of the first half of the digits is equal to the sum of the second half.
 
