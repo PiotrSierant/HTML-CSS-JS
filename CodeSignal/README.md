@@ -1,3 +1,26 @@
+# Are similar
+___
+Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
+
+Given two arrays a and b, check whether they are similar.
+
+Example:
+* For **_a = [1, 2, 3]_** and **_b = [1, 2, 3]_**, the output should be
+**solution(a, b) = true**
+* For **_a = [1, 2, 2]_** and **_b = [2, 1, 1]_**, the output should be
+  **solution(a, b) = false**
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/AreSimilar.js)
+```javascript
+function solution(a, b) {
+    const newA = a.filter((element,index) => element !== b[index])
+    const newB = b.filter((element,index) => element !== a[index])
+    return newA.length === 0 || (newA.length === 2 && newA.join('') === newB.reverse().join(''))
+  }
+a = [1, 2, 3] ;
+b = [1, 2, 3];
+console.log(solution(a, b));
+```
 # Add border
 ___
 Given a rectangular matrix of characters, add a border of asterisks(*) to it.
@@ -12,13 +35,13 @@ The output should be solution(picture) = ```["*****",
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/addBorder.js)
 ```javascript
-  function solution(picture) {
+function solution(picture) {
     picture = picture.map(f=>'*'.concat(f,'*'))
     let lengthRowArray = picture[0].length; // 5
     picture.unshift(Array(lengthRowArray).fill('*').join('')); // dodaj na początek
     picture.push(Array(lengthRowArray).fill('*').join(''))
     return picture;
-  }
+}
 ```
 
 # Alternating sums
@@ -32,24 +55,24 @@ Example:
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/alternatingSums.js)
 ```javascript
 const solution = (a) => {
-  if(a.length === 1) {
-    a.push(0);
-    return a
-  }
-  let firstArray = [];
-  let secondArray = [];
-  a.forEach((element, index) => {
-    if(index % 2 === 0) {
-      firstArray.push(element);
-    } else {
-      secondArray.push(element);
+    if(a.length === 1) {
+      a.push(0);
+      return a
     }
-  })
-  if(firstArray.length > 0 && secondArray.length > 0) {
-    const resultFirstArray = firstArray.reduce((total, element) => total + element);
-    const secondArrayArray = secondArray.reduce((total, element) => total + element);
-    return [resultFirstArray, secondArrayArray];
-  }
+    let firstArray = [];
+    let secondArray = [];
+    a.forEach((element, index) => {
+      if(index % 2 === 0) {
+        firstArray.push(element);
+      } else {
+        secondArray.push(element);
+      }
+    })
+    if(firstArray.length > 0 && secondArray.length > 0) {
+      const resultFirstArray = firstArray.reduce((total, element) => total + element);
+      const secondArrayArray = secondArray.reduce((total, element) => total + element);
+      return [resultFirstArray, secondArrayArray];
+    }
 }
 ```
 
@@ -95,18 +118,18 @@ Example:
 
 ```javascript
 function solution(a) {
-  let sorted = a.filter(x => {
-    if(x !== -1) {
-      return x;
+    let sorted = a.filter(x => {
+        if(x !== -1) {
+          return x;
+        }
+    }).sort((a, b) => (a-b));
+    let sortedCount = 0;
+    for(let i = 0; i < a.length; i++) {
+        if (a[i] !== -1) {
+          a[i] = sorted[sortedCount];
+          sortedCount = sortedCount + 1;
+        }
     }
-  }).sort((a, b) => (a-b));
-  let sortedCount = 0;
-  for(let i = 0; i < a.length; i++) {
-    if (a[i] !== -1) {
-      a[i] = sorted[sortedCount];
-      sortedCount = sortedCount + 1;
-    }
-  }
   return a;
 }
 ```
@@ -227,20 +250,20 @@ Given an array of strings, return another array containing all of its longest st
 
 ```javascript
 function solution(inputArray) {
-  let arr = inputArray;
-  let longest = 0;
-  let longestArr = [];
-  for(let i = 0; i < arr.length; i++) {
-    if(arr[i].length >= longest) {
-      longest = arr[i].length;
+    let arr = inputArray;
+    let longest = 0;
+    let longestArr = [];
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i].length >= longest) {
+          longest = arr[i].length;
+        }
     }
-  }
-  for(let j = 0; j < arr.length; j++) {
-    if(arr[j].length === longest) {
-      longestArr.push(arr[j]);
+    for(let j = 0; j < arr.length; j++) {
+        if(arr[j].length === longest) {
+          longestArr.push(arr[j]);
+        }
     }
-  }
-  return longestArr;
+    return longestArr;
 }
 ```
 
@@ -261,12 +284,12 @@ function solution(s1, s2) {
   let string2 = [...s2].sort();
   let total = 0;
   for (let i = 0; i < string1.length; i++) {
-    for (let j = 0; j < string2.length; j++) {
-      if (string1[i] === string2[j]) {
-        total += 1;
-        i++;
+      for (let j = 0; j < string2.length; j++) {
+          if (string1[i] === string2[j]) {
+            total += 1;
+            i++;
+          }
       }
-    }
   }
   return total
 }
@@ -282,7 +305,7 @@ A **1**-interesting polygon is just a square with a side of length **1**. An n-i
 
 ```javascript
 function solution(n) {
-  return 2*n*(n-1) +1;
+    return 2*n*(n-1) +1;
 }
 ```
 
