@@ -1,3 +1,26 @@
+# Array Change
+___
+You are given an array of integers. On each move you are allowed to increase exactly one of its element by one. Find the minimal number of moves required to obtain a strictly increasing sequence from the input.
+
+Example:
+* For **_inputArray = [1, 1, 1]_**, the output should be
+  **solution(inputArray) = 3**
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/arrayChange.js)
+```javascript
+function solution(inputArray) {
+  let max = inputArray[0];
+  let moves = 0;
+  for(let i = 1; i < inputArray.length; i++) {
+    if (inputArray[i] <= max) {
+      moves += max - inputArray[i] + 1;
+      inputArray[i] = max + 1;
+    }
+    max = inputArray[i]
+  }
+  return moves
+}
+```
 # Are similar
 ___
 Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
