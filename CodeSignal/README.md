@@ -1,3 +1,23 @@
+# Array Maximal Adjacent Difference
+___
+Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.
+
+Example:
+* For **_inputArray = [2, 4, 1, 0]_**, the output should be
+  **solution(inputArray) = 3**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/arrayMaximalAdjacentDifference.js)
+```javascript
+function solution(inputArray) {
+  let result = [];
+  inputArray.reduce((a,b) => {
+    result.push(Math.abs(a-b));
+    return b
+  })
+  return Math.max(...result);
+}
+```
+
 # Are Equally Strong
 ___
 Call two arms equally strong if the heaviest weights they each are able to lift are equal.
