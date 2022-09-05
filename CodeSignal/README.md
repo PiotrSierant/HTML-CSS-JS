@@ -1,3 +1,30 @@
+# Are Equally Strong
+___
+Call two arms equally strong if the heaviest weights they each are able to lift are equal.
+
+Call two people equally strong if their strongest arms are equally strong (the strongest arm can be both the right and the left), and so are their weakest arms.
+
+Given your and your friend's arms' lifting capabilities find out if you two are equally strong.
+
+Example:
+* For **_yourLeft = 10, yourRight = 15, friendsLeft = 15, and friendsRight = 10_**, the output should be
+  **solution(yourLeft, yourRight, friendsLeft, friendsRight) = true**;
+* For **_yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 10_**, the output should be
+  **solution(yourLeft, yourRight, friendsLeft, friendsRight) = true**;
+* For **_yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 9_**, the output should be
+  **solution(yourLeft, yourRight, friendsLeft, friendsRight) = false**.
+
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/areEquallyStrong.js)
+```javascript
+function solution(yourLeft, yourRight, friendsLeft, friendsRight) {
+  if (yourLeft === friendsRight && yourRight === friendsLeft) {
+    return true;
+  }
+  return yourLeft === friendsLeft && yourRight === friendsRight;
+}
+```
+
 # Palindrome Rearranging
 ___
 Given a string, find out if its characters can be rearranged to form a palindrome.
@@ -31,6 +58,7 @@ function palindromeRearranging(inputString) {
   return licznik <= 1
 }
 ```
+
 # Array Change
 ___
 You are given an array of integers. On each move you are allowed to increase exactly one of its element by one. Find the minimal number of moves required to obtain a strictly increasing sequence from the input.
@@ -54,6 +82,7 @@ function solution(inputArray) {
   return moves
 }
 ```
+
 # Are similar
 ___
 Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
@@ -77,6 +106,7 @@ a = [1, 2, 3] ;
 b = [1, 2, 3];
 console.log(solution(a, b));
 ```
+
 # Add border
 ___
 Given a rectangular matrix of characters, add a border of asterisks(*) to it.
