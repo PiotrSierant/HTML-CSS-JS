@@ -1,3 +1,33 @@
+# isIPv4Address
+___
+An IP address is a numerical label assigned to each device (e.g., computer, printer) participating in a computer network that uses the Internet Protocol for communication. There are two versions of the Internet protocol, and thus two versions of addresses. One of them is the IPv4 address.
+
+Given a string, find out if it satisfies the IPv4 address naming rules.
+
+Example:
+* For **_inputString = "172.16.254.1"_**, the output should be
+  **solution(inputString) = true**;
+
+* For **_inputString = "172.316.254.1"_**, the output should be
+**solution(inputString) = false**. **316** is not in **range [0, 255]**.
+
+* For **_inputString = ".254.255.0"_**, the output should be
+**solution(inputString) = false**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/isIPv4Address.js)
+```javascript
+function solution(inputString) {
+  const arr = inputString.split('.').filter(element =>  element !== '01' && element !== '00')
+  if (arr.length === 4) {
+    return arr.every( number => {
+      return number >= 0 && number <= 255 && number !== '';
+
+    })
+  }
+  return false
+}
+```
+
 # Array Maximal Adjacent Difference
 ___
 Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.
