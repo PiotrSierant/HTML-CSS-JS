@@ -1,3 +1,36 @@
+# Palindrome Rearranging
+___
+Given a string, find out if its characters can be rearranged to form a palindrome.
+
+Example:
+* For **_inputString = "aabb"_**, the output should be
+  **solution(inputString) = true**.
+
+* We can rearrange **"aabb"** to make **"abba"**, which is a palindrome.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/palindromeRearranging.js)
+```javascript
+function palindromeRearranging(inputString) {
+  const array = inputString.split('');
+  const litery = [];
+  array.map( element => {
+    if(litery[element]) {
+      litery[element]++;
+    } else {
+      litery[element] = 1;
+    }
+  })
+  let licznik = 0;
+  for(let litera in litery) {
+    let value = litery[litera];
+    if(licznik > 1) break;
+    if(value%2===1) {
+      licznik =+ 1;
+    }
+  }
+  return licznik <= 1
+}
+```
 # Array Change
 ___
 You are given an array of integers. On each move you are allowed to increase exactly one of its element by one. Find the minimal number of moves required to obtain a strictly increasing sequence from the input.
