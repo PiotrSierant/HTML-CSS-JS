@@ -1,3 +1,28 @@
+# Even Digits Only
+___
+Check if all digits of the given integer are even.
+
+Example:
+* For **n = 248622**, the output should be
+  **solution(n) = true**;
+* For **n = 642386**, the output should be
+  **solution(n) = false**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/EvenDigitsOnly.js)
+```javascript
+function solution(n) {
+  const arrayNumber = [...n + ''].map(n=>+n);
+  let odd = [];
+  for(let element of arrayNumber) {
+    console.log(element)
+    if(element % 2 === 1) {
+      odd.push(element)
+    }
+  }
+  return odd.length > 0 ? false : true;
+}
+```
+
 # Array Replace
 ___
 Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.
