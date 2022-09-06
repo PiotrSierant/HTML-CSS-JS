@@ -1,3 +1,21 @@
+# Alphabetic Shift
+___
+Given a string, your task is to replace each of its characters by the next one in the English alphabet; i.e. replace a with b, replace b with c, etc (z would be replaced by a).
+
+Example:
+* For **inputString = "crazy"**, the output should be **solution(inputString) = "dsbaz"**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/alphabeticShift.js)
+```javascript
+function solution(inputString) {
+  return inputString.split('').map(char => {
+    return char.charCodeAt(0) === 122
+            ? 'a'
+            : String.fromCharCode(char.charCodeAt(0)+1)
+  }).join('');
+}
+```
+
 # Variable Name
 ___
 Correct variable names consist only of English letters, digits and underscores and they can't start with a digit.
