@@ -1,3 +1,29 @@
+# Array Replace
+___
+Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.
+
+Example:
+* For **inputArray = [1, 2, 1]**, **elemToReplace = 1**, and **substitutionElem = 3**, the output should be
+  **solution(inputArray, elemToReplace, substitutionElem) = [3, 2, 3]**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/ArrayReplace.js)
+```javascript
+function solution(inputArray, elemToReplace, substitutionElem) {
+  let indexes = []
+  if(inputArray.includes(elemToReplace)) {
+    for(let i = 0; i < inputArray.length; i++) {
+      if(inputArray[i] === elemToReplace) {
+        indexes.push(i);
+      }
+    }
+  }
+  for(let i = 0; i < indexes.length; i++) {
+    inputArray[indexes[i]] = substitutionElem;
+  }
+  return inputArray
+}
+```
+
 # Minesweeper
 ___
 In the popular Minesweeper game you have a board with some mines and those cells that don't contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.
