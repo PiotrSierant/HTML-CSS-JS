@@ -1,3 +1,20 @@
+# Circle of Numbers
+___
+Consider integer numbers from 0 to n - 1 written down along the circle in such a way that the distance between any two neighboring numbers is equal (note that 0 and n - 1 are neighboring, too).
+
+Given n and firstNumber, find the number which is written in the radially opposite position to firstNumber.
+
+Example:
+* For **n = 10** and **firstNumber = 2**, the output should be
+  **solution(n, firstNumber) = 7**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/CircleofNumbers.js)
+```javascript
+function solution(n, firstNumber) {
+  return (n / 2 + firstNumber) % n;
+}
+```
+
 # Chess Board Cell Color
 ___
 Given two cells on the standard chess board, determine whether they have the same color or not.
