@@ -1,6 +1,55 @@
+# stringsRearrangement
+___
+Given an array of equal-length strings, you'd like to know if it's possible to rearrange the order of the elements in such a way that each consecutive pair of strings differ by exactly one character. Return true if it's possible, and false if not.
+
+```Note: You're only rearranging the order of the strings, not the order of the letters within the strings!```
+
+Example:
+* For ```inputArray = ["aba", "bbb", "bab"]```, the output should be
+```solution(inputArray) = false```.
+
+There are 6 possible arrangements for these strings:
+
+```
+["aba", "bbb", "bab"]
+["aba", "bab", "bbb"]
+["bbb", "aba", "bab"]
+["bbb", "bab", "aba"]
+["bab", "bbb", "aba"]
+["bab", "aba", "bbb"]
+```
+
+None of these satisfy the condition of consecutive strings differing by `1` character, so the answer is ```false```.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/stringsRearrangement.js)
+```javascript
+function solution(inputArray) {
+  let res1 = 0;
+  let res2 = 0;
+  let count = 0;
+  let sum = 0;
+  for(let i = 0; i < inputArray.length; i++){
+    sum = 0;
+    for(let j = 0; j < inputArray.length; j++){
+      count = 0;
+      for(let a = 0; a < inputArray[i].length; a++){
+        if(inputArray[i][a] !== inputArray[j][a]) count++;
+      }
+      if(count === 1) sum++;
+    }
+    if(sum === 1) res1 ++;
+    else if(sum > 1) res2++;
+  }
+  if(res1 + res2 === inputArray.length){
+    return !(res1 % 2 !== 0 && inputArray.length % 2 === 0 || res1 === inputArray.length);
+  }
+  else return false;
+}
+```
+
 # absoluteValuesSumMinimization
 ___
-Given a sorted array of integers **a**, your task is to determine which element of **a** is _closest_ to all other values of **a**. In other words, find the element **x** in **a**, which minimizes the following sum:
+Given a sorted array of integers ```a```, your task is to determine which element of ```a``` is _closest_ to all other values of ```a```. In other words, find the element ```x``` in ```a```, which minimizes the following sum:
 
 ```abs(a[0] - x) + abs(a[1] - x) + ... + abs(a[a.length - 1] - x)```
 
@@ -10,7 +59,7 @@ If there are several possible answers, output the smallest one.
 
 Example:
 
-* For **a = [2, 4, 7]**, the output should be **solution(a) = 4**.
+* For ```a = [2, 4, 7]```, the output should be ```solution(a) = 4```.
   * for ```x = 2```, the value will be ```abs(2 - 2) + abs(4 - 2) + abs(7 - 2) = 7```.
   * for ```x = 4```, the value will be ```abs(2 - 4) + abs(4 - 4) + abs(7 - 4) = 5```.
   * for ```x = 7```, the value will be ```abs(2 - 7) + abs(4 - 7) + abs(7 - 7) = 8```.
@@ -36,17 +85,17 @@ ___
 You have deposited a specific amount of money into your bank account. Each year your balance increases at the same growth rate. With the assumption that you don't make any additional deposits, find out how long it would take for your balance to pass a specific threshold.
 
 Example:
-* For **_deposit = 100_**, **_rate = 20_**, and **_threshold = 170_**, the output should be
-_**solution(deposit, rate, threshold) = 3.**_
+* For ```deposit = 100```, ```rate = 20```, and ```threshold = 170```, the output should be
+```solution(deposit, rate, threshold) = 3.```
 
-Each year the amount of money in your account increases by **20%**. So throughout the years, your balance would be:
+Each year the amount of money in your account increases by ```20%```. So throughout the years, your balance would be:
 
-* year 0: **100**;
-* year 1: **120**;
-* year 2: **144**;
-* year 3: **172.8**.
+* year 0: ```100```;
+* year 1: ```120```;
+* year 2: ```144```;
+* year 3: ```172.8```.
 
-Thus, it will take **3** years for your balance to pass the **threshold**, so the answer is **3**.
+Thus, it will take ```3``` years for your balance to pass the ```threshold```, so the answer is ```3```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/depositProfit.js)
 ```javascript
@@ -68,8 +117,8 @@ Consider integer numbers from 0 to n - 1 written down along the circle in such a
 Given n and firstNumber, find the number which is written in the radially opposite position to firstNumber.
 
 Example:
-* For **n = 10** and **firstNumber = 2**, the output should be
-  **solution(n, firstNumber) = 7**.
+* For ```n = 10``` and ```firstNumber = 2```, the output should be
+  ```solution(n, firstNumber) = 7```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/CircleofNumbers.js)
 ```javascript
@@ -83,10 +132,10 @@ ___
 Given two cells on the standard chess board, determine whether they have the same color or not.
 
 Example:
-* For **cell1 = "A1"** and **cell2 = "C3"**, the output should be
-  **solution(cell1, cell2) = true**.
-* For **cell1 = "A1"** and **cell2 = "H3"**, the output should be
-  **solution(cell1, cell2) = false**.
+* For ```cell1 = "A1"``` and ```cell2 = "C3"```, the output should be
+  ```solution(cell1, cell2) = true```.
+* For ```cell1 = "A1"``` and ```cell2 = "H3"```, the output should be
+  ```solution(cell1, cell2) = false```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/chessBoardCellColor.js)
 ```javascript
@@ -103,7 +152,7 @@ ___
 Given a string, your task is to replace each of its characters by the next one in the English alphabet; i.e. replace a with b, replace b with c, etc (z would be replaced by a).
 
 Example:
-* For **inputString = "crazy"**, the output should be **solution(inputString) = "dsbaz"**.
+* For ```inputString = "crazy"```, the output should be ```solution(inputString) = "dsbaz"```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/alphabeticShift.js)
 ```javascript
@@ -123,12 +172,12 @@ Correct variable names consist only of English letters, digits and underscores a
 Check if the given string is a correct variable name.
 
 Example:
-* For name = **"var_1__Int"**, the output should be
-**solution(name) = true**;
-* For **name = "qq-q"**, the output should be
-**solution(name) = false**;
-* For **name = "2w2"**, the output should be
-**solution(name) = false**.
+* For name = ```"var_1__Int"```, the output should be
+```solution(name) = true```;
+* For ```name = "qq-q"```, the output should be
+```solution(name) = false```;
+* For ```name = "2w2"```, the output should be
+```solution(name) = false```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/variableName.js)
 ```javascript
@@ -142,10 +191,10 @@ ___
 Check if all digits of the given integer are even.
 
 Example:
-* For **n = 248622**, the output should be
-  **solution(n) = true**;
-* For **n = 642386**, the output should be
-  **solution(n) = false**.
+* For ```n = 248622```, the output should be
+  ```solution(n) = true```;
+* For ```n = 642386```, the output should be
+  ```solution(n) = false```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/EvenDigitsOnly.js)
 ```javascript
@@ -167,8 +216,8 @@ ___
 Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.
 
 Example:
-* For **inputArray = [1, 2, 1]**, **elemToReplace = 1**, and **substitutionElem = 3**, the output should be
-  **solution(inputArray, elemToReplace, substitutionElem) = [3, 2, 3]**.
+* For ```inputArray = [1, 2, 1]```, ```elemToReplace = 1```, and ```substitutionElem = 3```, the output should be
+  ```solution(inputArray, elemToReplace, substitutionElem) = [3, 2, 3]```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/ArrayReplace.js)
 ```javascript
@@ -255,9 +304,9 @@ Example:
   [1, 7, 1],
   [1, 1, 1]]
 ```
-the output should be **_solution(image) = [[1]]_**.
+the output should be ```solution(image) = [[1]]```.
 
-To get the value of the middle pixel in the input **3 × 3** square: **(1 + 1 + 1 + 1 + 7 + 1 + 1 + 1 + 1) = 15 / 9 = 1.66666 = 1**. The border pixels are cropped from the final result.
+To get the value of the middle pixel in the input ```3 × 3``` square: ```(1 + 1 + 1 + 1 + 7 + 1 + 1 + 1 + 1) = 15 / 9 = 1.66666 = 1```. The border pixels are cropped from the final result.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/BoxBlur.js)
 ```javascript
@@ -285,8 +334,8 @@ Assume that you are jumping from the point with coordinate 0 to the right. You a
 Find the minimal length of the jump enough to avoid all the obstacles.
 
 Example:
-* For **_inputArray = [5, 3, 6, 7, 9]_**, the output should be
-  **solution(inputArray) = 4**.
+* For ```inputArray = [5, 3, 6, 7, 9]```, the output should be
+  ```solution(inputArray) = 4```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/avoidObstacles.js)
 ```javascript
@@ -305,14 +354,14 @@ An IP address is a numerical label assigned to each device (e.g., computer, prin
 Given a string, find out if it satisfies the IPv4 address naming rules.
 
 Example:
-* For **_inputString = "172.16.254.1"_**, the output should be
-  **solution(inputString) = true**;
+* For ```inputString = "172.16.254.1"```, the output should be
+  ```solution(inputString) = true```;
 
-* For **_inputString = "172.316.254.1"_**, the output should be
-**solution(inputString) = false**. **316** is not in **range [0, 255]**.
+* For ```inputString = "172.316.254.1"```, the output should be
+```solution(inputString) = false```. ```316``` is not in ```range [0, 255]```.
 
-* For **_inputString = ".254.255.0"_**, the output should be
-**solution(inputString) = false**.
+* For ```inputString = ".254.255.0"```, the output should be
+```solution(inputString) = false```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/isIPv4Address.js)
 ```javascript
@@ -333,8 +382,8 @@ ___
 Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.
 
 Example:
-* For **_inputArray = [2, 4, 1, 0]_**, the output should be
-  **solution(inputArray) = 3**.
+* For ```inputArray = [2, 4, 1, 0]```, the output should be
+  ```solution(inputArray) = 3```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/arrayMaximalAdjacentDifference.js)
 ```javascript
@@ -357,12 +406,12 @@ Call two people equally strong if their strongest arms are equally strong (the s
 Given your and your friend's arms' lifting capabilities find out if you two are equally strong.
 
 Example:
-* For **_yourLeft = 10, yourRight = 15, friendsLeft = 15, and friendsRight = 10_**, the output should be
-  **solution(yourLeft, yourRight, friendsLeft, friendsRight) = true**;
-* For **_yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 10_**, the output should be
-  **solution(yourLeft, yourRight, friendsLeft, friendsRight) = true**;
-* For **_yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 9_**, the output should be
-  **solution(yourLeft, yourRight, friendsLeft, friendsRight) = false**.
+* For ```yourLeft = 10, yourRight = 15, friendsLeft = 15, and friendsRight = 10```, the output should be
+  ```solution(yourLeft, yourRight, friendsLeft, friendsRight) = true```;
+* For ```yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 10```, the output should be
+  ```solution(yourLeft, yourRight, friendsLeft, friendsRight) = true```;
+* For ```yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 9```, the output should be
+  ```solution(yourLeft, yourRight, friendsLeft, friendsRight) = false```.
 
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/areEquallyStrong.js)
@@ -380,10 +429,10 @@ ___
 Given a string, find out if its characters can be rearranged to form a palindrome.
 
 Example:
-* For **_inputString = "aabb"_**, the output should be
-  **solution(inputString) = true**.
+* For ```inputString = "aabb"```, the output should be
+  ```solution(inputString) = true```.
 
-* We can rearrange **"aabb"** to make **"abba"**, which is a palindrome.
+* We can rearrange ```"aabb"``` to make ```"abba"```, which is a palindrome.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/palindromeRearranging.js)
 ```javascript
@@ -414,8 +463,8 @@ ___
 You are given an array of integers. On each move you are allowed to increase exactly one of its element by one. Find the minimal number of moves required to obtain a strictly increasing sequence from the input.
 
 Example:
-* For **_inputArray = [1, 1, 1]_**, the output should be
-  **solution(inputArray) = 3**
+* For ```inputArray = [1, 1, 1]```, the output should be
+  ```solution(inputArray) = 3```
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/arrayChange.js)
 ```javascript
@@ -440,10 +489,10 @@ Two arrays are called similar if one can be obtained from another by swapping at
 Given two arrays a and b, check whether they are similar.
 
 Example:
-* For **_a = [1, 2, 3]_** and **_b = [1, 2, 3]_**, the output should be
-**solution(a, b) = true**
-* For **_a = [1, 2, 2]_** and **_b = [2, 1, 1]_**, the output should be
-  **solution(a, b) = false**
+* For ```a = [1, 2, 3]``` and ```b = [1, 2, 3]```, the output should be
+```solution(a, b) = true```
+* For ```a = [1, 2, 2]``` and ```b = [2, 1, 1]```, the output should be
+  ```solution(a, b) = false```
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/AreSimilar.js)
 ```javascript
@@ -485,8 +534,8 @@ ___
 Several people are standing in a row and need to be divided into two teams. The first person goes into _team 1_, the second goes into _team 2_, the third goes into _team 1_ again, the fourth into _team 2_, and so on.
 
 Example:
-* For **_a = [50, 60, 60, 45, 70]_**, the output should be
-**_solution(a) = [180, 105]_**
+* For ```a = [50, 60, 60, 45, 70]```, the output should be
+```solution(a) = [180, 105]```
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/alternatingSums.js)
 ```javascript
@@ -519,15 +568,15 @@ Input strings will always be well-formed with matching ()s.
 
 Example:
 
-* For **_inputString = "(bar)"_**, the output should be
-**_solution(inputString) = "rab"_**;
-* For **_inputString = "foo(bar)baz"_**, the output should be
-**_solution(inputString) = "foorabbaz"_**;
-* For **_inputString = "foo(bar)baz(blim)"_**, the output should be
-**_solution(inputString) = "foorabbazmilb"_**;
-* For **_inputString = "foo(bar(baz))blim"_**, the output should be
-**_solution(inputString) = "foobazrabblim"_**.
-Because **_"foo(bar(baz))blim"_** becomes _**"foo(barzab)blim"**_ and then **_"foobazrabblim"_**.
+* For ```inputString = "(bar)"```, the output should be
+```solution(inputString) = "rab"```;
+* For ```inputString = "foo(bar)baz"```, the output should be
+```solution(inputString) = "foorabbaz"```;
+* For ```inputString = "foo(bar)baz(blim)"```, the output should be
+```solution(inputString) = "foorabbazmilb"```;
+* For ```inputString = "foo(bar(baz))blim"```, the output should be
+```solution(inputString) = "foobazrabblim"```.
+Because ```"foo(bar(baz))blim"``` becomes ```"foo(barzab)blim"``` and then ```"foobazrabblim"```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/reverseInParentheses.js)
 ```javascript
@@ -547,8 +596,8 @@ ___
 Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees. People can be very tall!
 
 Example:
-* For **_a = [-1, 150, 190, 170, -1, -1, 160, 180]_**, the output should be
-**_solution(a) = [-1, 150, 160, 170, -1, -1, 180, 190]_**.
+* For ```a = [-1, 150, 190, 170, -1, -1, 160, 180]```, the output should be
+```solution(a) = [-1, 150, 160, 170, -1, -1, 180, 190]```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/SortByHeight.js)
 
@@ -574,10 +623,10 @@ ___
 Given a sequence of integers as an array, determine whether it is possible to obtain a strictly increasing sequence by removing no more than one element from the array.
 
 Note: 
-_sequence a0, a1, ..., an is considered to be a strictly increasing if a0 < a1 < ... < an. Sequence containing only one element is also considered to be strictly increasing._
+_sequence a0, a1, ..., an is considered to be a strictly increasing if a0 < a1 < ... < an. Sequence containing only one element is also considered to be strictly increasing.
 
-* For sequence = **[1, 3, 2, 1]**, the output should be
-**solution(sequence) = false.**
+* For sequence = ```[1, 3, 2, 1]```, the output should be
+```solution(sequence) = false.```
 There is no one element in this array that can be removed in order to get a strictly increasing sequence.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/almostIncreasingSequence.js)
@@ -606,10 +655,10 @@ function solution(sequence){
 ___
 Ratiorg got statues of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by 1. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
 
-* For statues = **[6, 2, 3, 8]**, the output should be
-  **solution(statues) = 3**.
+* For statues = ```[6, 2, 3, 8]```, the output should be
+  ```solution(statues) = 3```.
 
-Ratiorg needs statues of sizes _**4**_, **_5_** and **_7_**.
+Ratiorg needs statues of sizes ```4```, ```5``` and ```7```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/MakeArrayConsecutive2.js)
 
@@ -627,12 +676,12 @@ function solution(statues) {
 ___
 Given the string, check if it is a palindrome.
 
-* For **_inputString = "aabaa"_**, the output should be
-  **_solution(inputString) = true;_**
-* For **_inputString = "abac"_**, the output should be
-  **_solution(inputString) = false;_**
-* **_For inputString = "a"_**, the output should be
-  **_solution(inputString) = true._**
+* For ```inputString = "aabaa"```, the output should be
+  ```solution(inputString) = true;```
+* For ```inputString = "abac"```, the output should be
+  ```solution(inputString) = false;```
+* ```For inputString = "a"```, the output should be
+  ```solution(inputString) = true.```
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/Palindrom.js)
 
@@ -655,10 +704,10 @@ function palindrom2(inputString) {
 ___
 Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
 
-* For **_inputArray = [3, 6, -2, -5, 7, 3]_**, the output should be
-**_solution(inputArray) = 21_**.
+* For ```_inputArray = [3, 6, -2, -5, 7, 3]```, the output should be
+```solution(inputArray) = 21```.
 
-**7** and **3** produce the largest product.
+```7``` and ```3``` produce the largest product.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/AdjacentElements.js)
 
@@ -679,8 +728,8 @@ function solution(inputArray) {
 ___
 Given an array of strings, return another array containing all of its longest strings.
 
-* For **_inputArray = ["aba", "aa", "ad", "vcd", "aba"]_**, the output should be
-**_solution(inputArray) = ["aba", "vcd", "aba"]_**.
+* For ```inputArray = ["aba", "aa", "ad", "vcd", "aba"]```, the output should be
+```solution(inputArray) = ["aba", "vcd", "aba"]```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/AllLongestStrings.js)
 
@@ -707,10 +756,10 @@ function solution(inputArray) {
 ___
 Given two strings, find the number of common characters between them.
 
-For _**s1 = "aabcc"**_ and _**s2 = "adcaa"**_, the output should be
-**_solution(s1, s2) = 3._**
+For ```s1 = "aabcc"``` and ```s2 = "adcaa"```, the output should be
+```solution(s1, s2) = 3.```
 
-Strings have _**3**_ common characters - _**2 "a"s**_  and _**1 "c"**_.
+Strings have ```3``` common characters - ```2 "a"s```  and ```1 "c"```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/commonCharacterCount.js)
 
@@ -733,9 +782,9 @@ function solution(s1, s2) {
 
 # Shape area
 ___
-Below we will define an **n**-interesting polygon. Your task is to find the area of a polygon for a given **n.**
+Below we will define an ```n```-interesting polygon. Your task is to find the area of a polygon for a given ```n.```
 
-A **1**-interesting polygon is just a square with a side of length **1**. An n-interesting polygon is obtained by taking the **n - 1**-interesting polygon and appending **1**-interesting polygons to its rim, side by side. You can see the **1-, 2-, 3-** and **4**-interesting polygons in the picture below.
+A ```1```-interesting polygon is just a square with a side of length ```1```. An n-interesting polygon is obtained by taking the ```n - 1```-interesting polygon and appending ```1```-interesting polygons to its rim, side by side. You can see the ```1-, 2-, 3-``` and ```4```-interesting polygons in the picture below.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/shapeArea.js)
 
@@ -747,9 +796,9 @@ function solution(n) {
 
 # Matrix elements sum
 ___
-After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there's a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, **or any of the rooms below any of the free rooms.**
+After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there's a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, ```or any of the rooms below any of the free rooms.```
 
-Given **matrix**, a rectangular matrix of integers, where each value represents the cost of the room, your task is to return the total sum of all rooms that are suitable for the CodeBots (ie: add up all the values that don't appear below a **0**).
+Given ```matrix```, a rectangular matrix of integers, where each value represents the cost of the room, your task is to return the total sum of all rooms that are suitable for the CodeBots (ie: add up all the values that don't appear below a ```0```).
 
 * For
 ```javascript
@@ -758,7 +807,7 @@ matrix =
 [0, 5, 0, 0],
 [2, 0, 3, 3]]
 ```
-the output should be **_solution(matrix) = 9_**.
+the output should be ```solution(matrix) = 9```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/matrixElementsSum.js)
 
@@ -785,13 +834,13 @@ function matrixElementsSum(matrix) {
 ___
 Ticket numbers usually consist of an even number of digits. A ticket number is considered lucky if the sum of the first half of the digits is equal to the sum of the second half.
 
-Given a ticket number **_n_**, determine if it's **_lucky_** or not.
+Given a ticket number ```n```, determine if it's ```lucky``` or not.
 
 Example:
-* For **_n = 1230_**, the output should be
-_**solution(n) = true**_;
-* For **_n = 239017_**, the output should be
-**_solution(n) = false_**.
+* For ```n = 1230```, the output should be
+```solution(n) = true```;
+* For ```n = 239017```, the output should be
+```solution(n) = false```.
 
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/isLucky.js)
 
