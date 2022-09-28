@@ -1,3 +1,29 @@
+# extractEachKth
+___
+Given array of integers, remove each kth element from it.
+
+Example:
+* For `inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` and k = 3, the output should be
+`solution(inputArray, k) = [1, 2, 4, 5, 7, 8, 10].`
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/extractEachKth.js)
+```javascript
+function solution(inputArray, k) {
+  const indexPopElement = [];
+  const initK = k;
+  for(let i = 0; i < inputArray.length; i++) {
+    if(i !== k - 1) {
+      indexPopElement.push(inputArray[i]);
+    }
+    if(i === k - 1) {
+      k = k + initK;
+    }
+  }
+
+  return indexPopElement
+}
+```
+
 # stringsRearrangement
 ___
 Given an array of equal-length strings, you'd like to know if it's possible to rearrange the order of the elements in such a way that each consecutive pair of strings differ by exactly one character. Return true if it's possible, and false if not.
