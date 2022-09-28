@@ -1,3 +1,66 @@
+# absoluteValuesSumMinimization
+___
+Given a sorted array of integers **a**, your task is to determine which element of **a** is _closest_ to all other values of **a**. In other words, find the element **x** in **a**, which minimizes the following sum:
+
+```abs(a[0] - x) + abs(a[1] - x) + ... + abs(a[a.length - 1] - x)```
+
+(where ```abs``` denotes the absolute value)
+
+If there are several possible answers, output the smallest one.
+
+Example:
+
+* For **a = [2, 4, 7]**, the output should be **solution(a) = 4**.
+  * for ```x = 2```, the value will be ```abs(2 - 2) + abs(4 - 2) + abs(7 - 2) = 7```.
+  * for ```x = 4```, the value will be ```abs(2 - 4) + abs(4 - 4) + abs(7 - 4) = 5```.
+  * for ```x = 7```, the value will be ```abs(2 - 7) + abs(4 - 7) + abs(7 - 7) = 8```.
+
+  The lowest possible value is when ```x = 4```, so the answer is ```4```.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/absoluteValuesSumMinimization.js)
+```javascript
+function solution(array) {
+  const result = [];
+  for(let number of array) {
+    const sum = array.reduce((total, next) => {
+      return total + Math.abs(next - number);
+    }, 0);
+    result.push(sum);
+  }
+  return array[result.indexOf(Math.min(...result))];
+}
+```
+
+# depositProfit
+___
+You have deposited a specific amount of money into your bank account. Each year your balance increases at the same growth rate. With the assumption that you don't make any additional deposits, find out how long it would take for your balance to pass a specific threshold.
+
+Example:
+* For **_deposit = 100_**, **_rate = 20_**, and **_threshold = 170_**, the output should be
+_**solution(deposit, rate, threshold) = 3.**_
+
+Each year the amount of money in your account increases by **20%**. So throughout the years, your balance would be:
+
+* year 0: **100**;
+* year 1: **120**;
+* year 2: **144**;
+* year 3: **172.8**.
+
+Thus, it will take **3** years for your balance to pass the **threshold**, so the answer is **3**.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/depositProfit.js)
+```javascript
+function solution(deposit, rate, threshold) {
+  const currentRate = 1 + (rate / 100);
+  let currentDeposit = deposit;
+  let howManyYears = 1;
+  for(howManyYears; currentDeposit < threshold; howManyYears++) {
+    currentDeposit = currentDeposit * currentRate;
+  }
+  return howManyYears - 1
+}
+```
+
 # Circle of Numbers
 ___
 Consider integer numbers from 0 to n - 1 written down along the circle in such a way that the distance between any two neighboring numbers is equal (note that 0 and n - 1 are neighboring, too).
