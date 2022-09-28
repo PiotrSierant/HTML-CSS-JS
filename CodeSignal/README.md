@@ -1,3 +1,29 @@
+# firstDigit
+___
+Find the leftmost digit that occurs in a given string.
+
+Example:
+* For `inputString = "var_1__Int"`, the output should be
+`solution(inputString) = '1'`;
+* For `inputString = "q2q-q"`, the output should be
+`solution(inputString) = '2'`;
+* For `inputString = "0ss"`, the output should be
+`solution(inputString) = '0'`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/firstDigit.js)
+```javascript
+function solution(inputString) {
+  const array_string = inputString.split('');
+  let result;
+  for(let element of array_string) {
+    if(!isNaN(Number(element)) && element !== ' ') {
+      return result = element
+    }
+  }
+  return result;
+}
+```
+
 # extractEachKth
 ___
 Given array of integers, remove each kth element from it.
