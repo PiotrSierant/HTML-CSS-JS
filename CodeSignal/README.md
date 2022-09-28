@@ -1,3 +1,22 @@
+# differentSymbolsNaive
+___
+Given a string, find the number of different characters in it.
+
+Example:
+* For `s = "cabca"`, the output `should be
+solution(s) = 3`.
+
+There are `3` different characters `a`, `b` and `c`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/differentSymbolsNaive.js)
+```javascript
+function solution(s) {
+  const set = new Set();
+  s.split('').forEach(element => set.add(element))
+  return set.size
+}
+```
+
 # firstDigit
 ___
 Find the leftmost digit that occurs in a given string.
