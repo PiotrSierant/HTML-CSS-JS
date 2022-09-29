@@ -1,3 +1,32 @@
+# KnapsackLight
+___
+You found two items in a treasure chest! The first item weighs weight1 and is worth value1, and the second item weighs weight2 and is worth value2. What is the total maximum value of the items you can take with you, assuming that your max weight capacity is maxW and you can't come back for the items later?
+
+Example:
+* For `value1 = 10`, `weight1 = 5`, `value2 = 6`, `weight2 = 4`, and `maxW = 8`, the output should be
+`solution(value1, weight1, value2, weight2, maxW) = 10`.
+
+You can only carry the first item.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/KnapsackLight.js)
+```javascript
+function solution(value1, weight1, value2, weight2, maxW) {
+  if (weight1 + weight2 <= maxW) {
+    return value1 + value2
+  }
+  if (weight1 <= maxW && weight2 <= maxW) {
+    return Math.max(value1, value2)
+  }
+  if (weight1 <= maxW) {
+    return value1
+  }
+  if (weight2 <= maxW) {
+    return value2
+  }
+  return 0
+}
+```
+
 # growingPlant
 ___
 Caring for a plant can be hard work, but since you tend to it regularly, you have a plant that grows consistently. Each day, its height increases by a fixed amount represented by the integer `upSpeed`. But due to lack of sunlight, the plant decreases in height every night, by an amount represented by `downSpeed`.
