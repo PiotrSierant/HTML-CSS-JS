@@ -1,3 +1,29 @@
+# BishopAndPawn
+___
+Given the positions of a white bishop and a black pawn on the standard chess board, determine whether the bishop can capture the pawn in one move.
+
+Example:
+* For `bishop = "a1"` and `pawn = "c3"`, the output should be
+  `solution(bishop, pawn) = true`.
+* For `bishop = "h1"` and `pawn = "h3"`, the output should be
+  `solution(bishop, pawn) = false`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/BishopAndPawn.js)
+```javascript
+function solution(bishop, pawn) {
+  const bishopCoords = bishop.split("");
+  const pawnCoords = pawn.split("");
+  bishopCoords[0] = 1 + bishopCoords[0].charCodeAt(0) - "a".charCodeAt(0);
+  bishopCoords[1] = Number(bishopCoords[1]);
+  pawnCoords[0] = 1 + pawnCoords[0].charCodeAt(0) - "a".charCodeAt(0);
+  pawnCoords[1] = Number(pawnCoords[1]);
+  return (
+      bishopCoords[0] - bishopCoords[1] === pawnCoords[0] - pawnCoords[1] ||
+      bishopCoords[0] + bishopCoords[1] === pawnCoords[0] + pawnCoords[1]
+  );
+}
+```
+
 # digitDegree
 ___
 Let's define digit degree of some positive integer as the number of times we need to replace this number with the sum of its digits until we get to a one digit number.
