@@ -1,3 +1,25 @@
+# longestDigitsPrefix
+___
+Given a string, output its longest prefix which contains only digits.
+
+Example:
+* For `inputString = "123aa1"`, the output should be
+  `solution(inputString) = "123"`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/longestDigitsPrefix.js)
+```javascript
+function solution(inputString) {
+  let count = 0;
+  for(let i = 0;  i < inputString.length; i++) {
+    if(!/\d/.test(inputString[i])) {
+      break
+    }
+    count++;
+  }
+  return inputString.substring(0,count);
+}
+```
+
 # KnapsackLight
 ___
 You found two items in a treasure chest! The first item weighs weight1 and is worth value1, and the second item weighs weight2 and is worth value2. What is the total maximum value of the items you can take with you, assuming that your max weight capacity is maxW and you can't come back for the items later?
