@@ -1,3 +1,39 @@
+# isBeautifulString
+___
+A string is said to be beautiful if each letter in the **string** appears at most as many times as **the previous letter in the alphabet within the string**; ie: `b` occurs no more times than `a`; `c` occurs no more times than `b`; etc. Note that letter a has no previous letter.
+
+Given a string, check whether it is _beautiful_.
+
+Example:
+* For `inputString = "bbbaacdafe"`, the output should be `solution(inputString) = true`.
+
+  This string contains 3 `a`s, 3 `b`s, 1 `c`, 1 `d`, 1 `e`, and 1 `f` (and 0 of every other letter), so since there aren't any letters that appear more frequently than the previous letter, this string qualifies as beautiful.
+
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/isBeautifulString.js)
+```javascript
+function solution(inputString) {
+  const alphabet = [];
+
+  for (let i = 'a'.charCodeAt(); i <= 'z'.charCodeAt(); i++) {
+    alphabet.push(String.fromCharCode(i));
+  }
+  const letters = Array(alphabet.length).fill(0);
+
+  for (let letter of inputString) {
+    letters[alphabet.indexOf(letter)]++;
+  }
+
+  for (let i = 0; i < letters.length; i++) {
+    if (letters[i + 1] > letters[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+```
+
 # BishopAndPawn
 ___
 Given the positions of a white bishop and a black pawn on the standard chess board, determine whether the bishop can capture the pawn in one move.
