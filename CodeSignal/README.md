@@ -1,3 +1,49 @@
+# buildPalindrome
+___
+Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.
+
+Example:
+
+* For `st = "abcdc"`, the output should be
+  `solution(st) = "abcdcba"`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/buildPalindrome.js)
+```javascript
+function solution(st) {
+  let i = 0;
+  let aux;
+  while(st !== st.split('').reverse().join('')){
+    aux = st.split('')
+    aux.splice(st.length-i, 0 ,st[i])
+    st = aux.join('');
+    i++;
+  }
+  return st;
+}
+```
+
+# FindEmailDomain
+___
+An email address such as `John.Smith@example.com` is made up of a local part (`John.Smith`), an `"@"` symbol, then a domain part (`example.com`).
+
+The domain name part of an email address may only consist of letters, digits, hyphens and dots. The local part, however, also allows a lot of different special characters. Here you can look at several examples of correct and incorrect email addresses.
+
+Given a valid email address, find its domain part.
+
+Example:
+
+* For `address = "prettyandsimple@example.com"`, the output should be
+  `solution(address) = "example.com"`;
+* For `address = "fully-qualified-domain@codesignal.com"`, the output should be
+  `solution(address) = "codesignal.com"`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/FindEmailDomain.js)
+```javascript
+function solution(address) {
+  return address.split('@').at(-1);
+}
+```
+
 # isBeautifulString
 ___
 A string is said to be beautiful if each letter in the **string** appears at most as many times as **the previous letter in the alphabet within the string**; ie: `b` occurs no more times than `a`; `c` occurs no more times than `b`; etc. Note that letter a has no previous letter.
