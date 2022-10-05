@@ -1,3 +1,32 @@
+# FileNaming
+___
+You are given an array of desired filenames in the order of their creation. Since two files cannot have equal names, the one which comes later will have an addition to its name in a form of `(k)`, where `k` is the smallest positive integer such that the obtained name is not used yet.
+
+Return an array of names that will be given to the files.
+
+Example:
+* For `names = ["doc", "doc", "image", "doc(1)", "doc"]`, the output should be
+`solution(names) = ["doc", "doc(1)", "image", "doc(1)(1)", "doc(2)"]`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/FileNaming.js)
+```javascript
+function solution(names) {
+  let newArr = [];
+  for (let element in names) {
+    let count = 0;
+    let tmp = names[element];
+    if (newArr.indexOf(names[element]) > -1) {
+      while (newArr.indexOf(names[element]) > -1) {
+        count++;
+        names[element] = tmp + "(" + count + ")";
+      }
+    }
+    newArr.push(names[element]);
+  }
+  return newArr;
+}
+```
+
 # digitsProduct
 ___
 Given an integer product, find the smallest positive (i.e. greater than 0) integer the product of whose digits is equal to product. If there is no such integer, return -1 instead.
