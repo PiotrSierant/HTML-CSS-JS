@@ -1,3 +1,26 @@
+# ValidTime
+___
+Check if the given string is a correct time representation of the 24-hour clock.
+
+Example:
+* For `time = "13:58"`, the output should be
+`  solution(time) = true`;
+* For `time = "25:51"`, the output should be
+  `solution(time) = false`;
+* For `time = "02:76"`, the output should be
+  `solution(time) = false`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/ValidTime.js)
+```javascript
+function solution(time) {
+  const arr = time.split(":");
+  if(arr[0] === '24' && arr[1] === '00') {
+    return false
+  }
+  return !(arr[0] >= '24' || arr[1] >= '60');
+}
+```
+
 # longestWord
 ___
 Define a word as a sequence of consecutive English letters. Find the longest word from the given string.
@@ -18,8 +41,8 @@ function solution(text) {
   const indexMaxValue = len.indexOf(maxValue);
   return arr[indexMaxValue]
 }
-
 ```
+
 # deleteDigit
 ___
 Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.
