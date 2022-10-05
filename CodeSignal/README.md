@@ -1,3 +1,26 @@
+# sumUpNumbers
+___
+CodeMaster has just returned from shopping. He scanned the check of the items he bought and gave the resulting string to Ratiorg to figure out the total number of purchased items. Since Ratiorg is a bot he is definitely going to automate it, so he needs a program that sums up all the numbers which appear in the given input.
+
+Help Ratiorg by writing a function that returns the sum of numbers that appear in the given `inputString`.
+
+Example:
+* For `inputString = "2 apples, 12 oranges"`, the output should be
+`solution(inputString) = 14`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/sumUpNumbers.js)
+```javascript
+function solution(inputString) {
+  const pattern = /[^0-9]/g
+  const arr = inputString.split(pattern);
+  const numbers = arr.filter(element => Number(element))
+  console.log(numbers)
+  return numbers.reduce((total, value) => {
+    return Number(total) + Number(value)
+  }, 0)
+}
+```
+
 # ValidTime
 ___
 Check if the given string is a correct time representation of the 24-hour clock.
