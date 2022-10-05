@@ -1,3 +1,25 @@
+# longestWord
+___
+Define a word as a sequence of consecutive English letters. Find the longest word from the given string.
+
+Example:
+* For `text = "Ready, steady, go!"`, the output should be
+`solution(text) = "steady"`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/longestWord.js)
+```javascript
+function solution(text) {
+  const pattern = /[^a-z^A-Z]/
+  const arr = text.split(pattern);
+  const len = arr.map(element => {
+    return element.length
+  })
+  const maxValue = Math.max(...len)
+  const indexMaxValue = len.indexOf(maxValue);
+  return arr[indexMaxValue]
+}
+
+```
 # deleteDigit
 ___
 Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.
