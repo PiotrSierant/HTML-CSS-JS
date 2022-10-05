@@ -1,3 +1,23 @@
+# isDigit
+___
+Determine if the given character is a digit or not.
+
+Example:
+* For `symbol = '0'`, the output should be
+`solution(symbol) = true`;
+* For `symbol = '-'`, the output should be
+`solution(symbol) = false`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/isDigit.js)
+```javascript
+function solution(symbol) {
+  if(symbol === '0') {
+    return true
+  }
+  return !!Number(symbol);
+}
+```
+
 # IsMAC48Address
 ___
 A media access control address (MAC address) is a unique identifier assigned to network interfaces for communications on the physical network segment.
