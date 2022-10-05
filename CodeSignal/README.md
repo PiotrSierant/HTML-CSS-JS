@@ -1,3 +1,75 @@
+# chessKnight
+___
+Given a position of a knight on the standard chessboard, find the number of different moves the knight can perform.
+
+The knight can move to a square that is two squares horizontally and one square vertically, or two squares vertically and one square horizontally away from it. The complete move therefore looks like the letter L. Check out the image below to see all valid moves for a knight piece that is placed on one of the central squares.
+
+Example:
+* For `cell = "a1"`, the output should be
+`solution(cell) = 2`.
+* For `cell = "c2"`, the output should be
+  `solution(cell) = 6`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/chessKnight.js)
+```javascript
+function solution(cell) {
+  cell = cell.split('');
+  cell[0] = cell[0].charCodeAt(0) - 'a'.charCodeAt(0) +1;
+  cell[1] = Number(cell[1]);
+  const aux = [[1,1], [1,1],[1,1],[1,1]]
+  let ret = 8;
+  if(cell[0] < 3){
+    ret -= aux[0][0];
+    ret -= aux[0][1];
+    aux[0][0] = 0;
+    aux[0][1] = 0;
+  }
+  if(cell[0] < 2) {
+    ret -= aux[1][0];
+    ret -= aux[1][1];
+    aux[1][0] = 0;
+    aux[1][1] = 0;
+  }
+  if(cell[0] > 6){
+    ret -= aux[3][0];
+    ret -= aux[3][1];
+    aux[3][0] = 0;
+    aux[3][1] = 0;
+  }
+  if(cell[0] > 7){
+    ret -= aux[2][0];
+    ret -= aux[2][1];
+    aux[2][0] = 0;
+    aux[2][1] = 0;
+  }
+  if(cell[1] < 3){
+    ret -= aux[1][1];
+    ret -= aux[2][1];
+    aux[1][1] = 0;
+    aux[2][1] = 0;
+  }
+  if(cell[1] < 2){
+    ret -= aux[0][1];
+    ret -= aux[3][1];
+    aux[0][1] = 0;
+    aux[3][1] = 0;
+  }
+  if(cell[1] > 6){
+    ret -= aux[1][0];
+    ret -= aux[2][0];
+    aux[1][0] = 0;
+    aux[2][0] = 0;
+  }
+  if(cell[1] > 7){
+    ret -= aux[0][0];
+    ret -= aux[3][0];
+    aux[0][0] = 0;
+    aux[3][0] = 0;
+  }
+  return ret;
+}
+```
+
 # lineEncoding
 ___
 Given a string, return its encoding defined as follows:
