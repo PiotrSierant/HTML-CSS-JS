@@ -1,3 +1,52 @@
+# sudoku
+___
+Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9 grid with digits so that each column, each row, and each of the nine 3 × 3 sub-grids that compose the grid contains all of the digits from 1 to 9.
+
+This algorithm should check if the given grid of numbers represents a correct solution to Sudoku.
+
+Example:
+* For
+``` 
+grid = [[1, 3, 2, 5, 4, 6, 9, 8, 7],
+        [4, 6, 5, 8, 7, 9, 3, 2, 1],
+        [7, 9, 8, 2, 1, 3, 6, 5, 4],
+        [9, 2, 1, 4, 3, 5, 8, 7, 6],
+        [3, 5, 4, 7, 6, 8, 2, 1, 9],
+        [6, 8, 7, 1, 9, 2, 5, 4, 3],
+        [5, 7, 6, 9, 8, 1, 4, 3, 2],
+        [2, 4, 3, 6, 5, 7, 1, 9, 8],
+        [8, 1, 9, 3, 2, 4, 7, 6, 5]]
+```
+the output should be
+`solution(grid) = true;`
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/sudoku.js)
+```javascript
+function solution(grid) {
+  function checkNine(arr) {
+    for (let i = 1; i < 10; i++) {
+      if (!arr.includes(i)) {
+        return false;
+      }
+    }
+    return arr.length === 9;
+  }
+  for (let i = 0; i < 9; i++){
+    const col = grid.map(row => row[i]);
+    const box = [];
+    for (let j = 0; j < 3; j++){
+      for(let k = 0; k < 3; k++){
+        box.push(grid[j+i-i%3][k+(i%3)*3]);
+      }
+    }
+    if (!checkNine(grid[i]) || !checkNine(col) || !checkNine(box)){
+      return false;
+    }
+  }
+  return true;
+}
+```
+
 # spiralNumbers
 ___
 Construct a square matrix with a size `N × N `containing integers from `1` to` N * N` in a spiral order, starting from top-left and in clockwise direction.
