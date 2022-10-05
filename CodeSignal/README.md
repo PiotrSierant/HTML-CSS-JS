@@ -1,3 +1,50 @@
+# DifferentSquares
+___
+Given a rectangular matrix containing only digits, calculate the number of different 2 × 2 squares in it.
+
+Example:
+* For
+
+  `matrix = [[1, 2, 1],  [2, 2, 2],
+  [2, 2, 2],
+  [1, 2, 3],
+  [2, 2, 1]]`
+
+  the output should be
+  `solution(matrix) = 6`.
+
+Here are all `6` different `2 × 2` squares:
+```
+1 2
+2 2
+
+2 1
+2 2
+
+2 2
+2 2
+
+2 2
+1 2
+
+2 2
+2 3
+
+2 3
+2 1
+```
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/DifferentSquares.js)
+```javascript
+function solution(matrix) {
+    let result = new Set()
+    for (let i = 0; i < matrix.length-1; i++) {
+        for (let j = 0; j < matrix[i].length-1; j++) {
+            result.add([matrix[i][j], matrix[i][j+1], matrix[i+1][j], matrix[i+1][j+1]].toString())}}
+    return result.size
+}
+```
+
 # sumUpNumbers
 ___
 CodeMaster has just returned from shopping. He scanned the check of the items he bought and gave the resulting string to Ratiorg to figure out the total number of purchased items. Since Ratiorg is a bot he is definitely going to automate it, so he needs a program that sums up all the numbers which appear in the given input.
