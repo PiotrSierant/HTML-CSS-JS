@@ -1,3 +1,35 @@
+# spiralNumbers
+___
+Construct a square matrix with a size `N × N `containing integers from `1` to` N * N` in a spiral order, starting from top-left and in clockwise direction.
+
+Example:
+* For `n = 3`, the output should be
+
+  ```
+  solution(n) = [[1, 2, 3],
+                 [8, 9, 4],
+                 [7, 6, 5]]
+  ```
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/spiralNumbers.js)
+```javascript
+function solution(n) {
+  let result = Array(n*n).fill(null).map((el,i)=>i+1);
+  let newArr = [];
+  let i = 0;
+  while(result.length) {
+    newArr.reverse();
+    newArr = newArr.length
+            ? newArr[0].map((col, i) => newArr.map(row => row[i]))
+            : newArr;
+
+    newArr.unshift(result.splice(-(Math.floor(i/2)+1)));
+    i++;
+  }
+  return newArr;
+}
+```
+
 # messageFromBinaryCode
 ___
 You are taking part in an Escape Room challenge designed specifically for programmers. In your efforts to find a clue, you've found a binary code written on the wall behind a vase, and realized that it must be an encrypted message. After some thought, your first guess is that each consecutive 8 bits of the code stand for the character with the corresponding extended ASCII code.
