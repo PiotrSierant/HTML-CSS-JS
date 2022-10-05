@@ -1,3 +1,26 @@
+# digitsProduct
+___
+Given an integer product, find the smallest positive (i.e. greater than 0) integer the product of whose digits is equal to product. If there is no such integer, return -1 instead.
+
+Example:
+* For `product = 12`, the output should be
+`solution(product) = 26`;
+* For `product = 19`, the output should be
+`solution(product) = -1`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/digitsProduct.js)
+```javascript
+function solution(product) {
+  function p(k) {
+    return String(k).split('').map(Number).reduce((a, b) => a * b, 1)
+  }
+  for (let i = 1; i < 5000; i++) {
+    if (p(i) === product) return i;
+  }
+  return -1;
+}
+```
+
 # DifferentSquares
 ___
 Given a rectangular matrix containing only digits, calculate the number of different 2 × 2 squares in it.
