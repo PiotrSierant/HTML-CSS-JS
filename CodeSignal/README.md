@@ -1,3 +1,34 @@
+# deleteDigit
+___
+Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.
+
+Example:
+* For `n = 152`, the output should be
+`solution(n) = 52`;
+* For `n = 1001`, the output should be
+`solution(n) = 101`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/deleteDigit.js)
+```javascript
+function solution(n) {
+  n = n.toString();
+  let largestNum = 0;
+
+  for(let i = 0; i < n.length; i++){
+    let string;
+    if (i !== 0) {
+      string = n.substring(0, i) + n.substring(i + 1);
+    } else {
+      string = n.substring(1, n.length);
+    }
+    if(parseInt(string)>largestNum){
+      largestNum = parseInt(string);
+    }
+  }
+  return largestNum;
+}
+```
+
 # chessKnight
 ___
 Given a position of a knight on the standard chessboard, find the number of different moves the knight can perform.
