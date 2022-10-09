@@ -1,3 +1,21 @@
+# AddTwoDigits
+___
+You are given a two-digit integer `n`. Return the sum of its digits.
+
+Example:
+For `n = 29`, the output should be
+`solution(n) = 11`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/AddTwoDigits.js)
+```javascript
+function solution(n) {
+  const arr = Array.from(String(n)).map(element => Number(element))
+  return arr.reduce((total, value) => {
+    return total + value
+  }, 0)
+}
+```
+
 # sudoku
 ___
 Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9 grid with digits so that each column, each row, and each of the nine 3 × 3 sub-grids that compose the grid contains all of the digits from 1 to 9.
