@@ -1,3 +1,22 @@
+# LargestNumber
+___
+Given an integer `n`, return the largest number that contains exactly `n` digits.
+
+Example:
+* For `n = 2`, the output should be
+`solution(n) = 99`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/LargestNumber.js)
+```javascript
+function solution(n) {
+  let str = '';
+  for(let i = 0; i < n; i ++) {
+    str += '9';
+  }
+  return Number(str)
+}
+```
+
 # AddTwoDigits
 ___
 You are given a two-digit integer `n`. Return the sum of its digits.
