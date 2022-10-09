@@ -1,3 +1,31 @@
+# MaxMultiple
+___
+Given a divisor and a bound, find the largest integer N such that:
+* `N` is divisible by `divisor`.
+* `N` is less than or equal to `bound`.
+* `N` is greater than `0`.
+
+It is guaranteed that such a number exists.
+
+Example:
+* For `divisor = 3` and `bound = 10`, the output should be
+  `solution(divisor, bound) = 9.`
+
+The largest integer divisible by `3` and not larger than `10` is `9`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/MaxMultiple.js)
+```javascript
+function solution(divisor, bound) {
+  let divisible = [];
+  for(let i = 0; i <= bound; i++) {
+    if(i % divisor === 0) {
+      divisible.push(i);
+    }
+  }
+  return Math.max(...divisible);
+}
+```
+
 # SeatsInTheater
 ___
 Your friend advised you to see a new performance in the most popular theater in the city. He knows a lot about art and his advice is usually good, but not this time: the performance turned out to be awfully dull. It's so bad you want to sneak out, which is quite simple, especially since the exit is located right behind your row to the left. All you need to do is climb over your seat and make your way to the exit.
