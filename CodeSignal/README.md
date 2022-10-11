@@ -1,3 +1,25 @@
+# ExtraNumber
+___
+You're given three integers, `a`, `b` and `c`. It is guaranteed that two of these integers are equal to each other. What is the value of the third integer?
+
+Example:
+* For `a = 2`, `b = 7`, and `c = 2`, the output should be
+  `solution(a, b, c) = 7`.
+
+The two equal numbers are `a` and `c`. The third number `(b)` equals `7`, which is the answer.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/ExtraNumber.js)
+```javascript
+function solution(a, b, c) {
+  if(a === b) {
+    return c
+  }
+  if(a === c) {
+    return b
+  }
+  return a
+}
+```
 # ReachNextLevel
 ___
 You are playing an RPG game. Currently your experience points (XP) total is equal to experience. To reach the next level your XP should be at least at threshold. If you kill the monster in front of you, you will gain more experience points in the amount of the reward.
