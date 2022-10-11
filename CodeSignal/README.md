@@ -1,3 +1,27 @@
+# IsInfiniteProcess
+___
+Given integers `a` and `b`, determine whether the following pseudocode results in an infinite loop
+
+```
+while a is not equal to b do
+increase a by 1
+decrease b by 1
+```
+Assume that the program is executed on a virtual machine which can store arbitrary long numbers and execute forever.
+
+Example:
+* For `a = 2` and `b = 6`, the output should be
+`solution(a, b) = false`;
+* For `a = 2` and `b = 3`, the output should be
+`solution(a, b) = true`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/IsInfiniteProcess.js)
+```javascript
+function solution(a, b) {
+  return a % 2 !== b % 2 || a > b
+}
+```
+
 # ExtraNumber
 ___
 You're given three integers, `a`, `b` and `c`. It is guaranteed that two of these integers are equal to each other. What is the value of the third integer?
@@ -20,6 +44,7 @@ function solution(a, b, c) {
   return a
 }
 ```
+
 # ReachNextLevel
 ___
 You are playing an RPG game. Currently your experience points (XP) total is equal to experience. To reach the next level your XP should be at least at threshold. If you kill the monster in front of you, you will gain more experience points in the amount of the reward.
