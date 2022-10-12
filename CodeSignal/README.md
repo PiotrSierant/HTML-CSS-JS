@@ -19,6 +19,28 @@ function solution(n) {
 }
 ```
 
+# SwapAdjacentBits
+___
+_Implement the missing code, denoted by ellipses. You may not modify the pre-existing code._
+
+You're given an arbitrary 32-bit integer `n`. Take its binary representation, split bits into it in pairs (bit number `0` and `1`, bit number `2` and `3`, `etc`.) and swap bits in each pair. Then return the result as a decimal number.
+
+Example:
+* For `n = 13`, the output should be
+`solution(n) = 14`.
+
+`1310 = 11012 ~> {11}{01}2 ~> 11102 = 1410`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/SwapAdjacentBits.js)
+```javascript
+function solution(n) {
+  return parseInt(
+          ((n.toString(2).length % 2 ? "0" : "") + n.toString(2))
+                  .match(/\d{2}/g)
+                  .map(el => el.split("").reverse().join("")).join(""), 2);
+}
+```
+
 # MirrorBits
 ___
 Reverse the order of the bits in a given integer.
