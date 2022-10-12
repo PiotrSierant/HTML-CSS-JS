@@ -1,3 +1,25 @@
+# EqualPairofBits
+___
+_Implement the missing code, denoted by ellipses. You may not modify the pre-existing code._
+
+You're given two integers, `n` and `m`. Find position of the rightmost pair of equal bits in their binary representations (it is guaranteed that such a pair exists), counting from right to left.
+
+Return the value of `2position_of_the_found_pair` (0-based).
+
+Example:
+For `n = 10` and `m = 11`, the output should be
+`solution(n, m) = 2`.
+
+`1010 = 10102, 1110 = 10112`, the position of the rightmost pair of equal bits is the bit at position `1` (0-based) from the right in the binary representations.
+So the answer is `21 = 2`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/EqualPairofBits.js)
+```javascript
+function solution(n, m) {
+  return (1 << ((n ^ m).toString(2).split("").reverse().join("") + "0").indexOf("0"));
+}
+```
+
 # DifferentRightmostBit
 ___
 _Implement the missing code, denoted by ellipses. You may not modify the pre-existing code._
