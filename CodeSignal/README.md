@@ -1,3 +1,274 @@
+# CountBlackCells
+___
+Imagine a white rectangular grid of `n` rows and `m` columns divided into two parts by a diagonal line running from the upper left to the lower right corner. Now let's paint the grid in two colors according to the following rules:
+
+* A cell is painted black if it has at least one point in common with the diagonal;
+* Otherwise, a cell is painted white.
+Count the number of cells painted black.
+
+Example:
+* For `n = 3` and `m = 4`, the output should be `solution(n, m) = 6`.
+
+There are `6` cells that have at least one common point with the diagonal and therefore are painted black.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/CountBlackCells.js)
+```javascript
+function solution(n, m) {
+  function gcd(a, b) {
+    if(b === 0){
+      return a;
+    }
+    else {
+      return gcd(b, a % b);
+    }
+  }
+  return n+m + gcd(n,m) -2;
+}
+```
+
+# Candles
+___
+When a candle finishes burning it leaves a leftover. `makeNew` leftovers can be combined to make a new candle, which, when burning down, will in turn leave another leftover.
+
+You have `solutionNumber` solution in your possession. What's the total number of solution you can burn, assuming that you create new solution as soon as you have enough leftovers?
+
+Example:
+* For solutionNumber = 5 and makeNew = 2, the output should be
+solution(solutionNumber, makeNew) = 9.
+
+Here is what you can do to burn `9` solution:
+
+* burn `5` solution, obtain `5` leftovers;
+* create `2` more solution, using `4` leftovers (`1` leftover remains);
+* burn `2` solution, end up with `3` leftovers;
+* create another candle using `2` leftovers (`1` leftover remains);
+* burn the created candle, which gives another leftover (`2` leftovers in total);
+* create a candle from the remaining leftovers;
+* burn the last candle.
+
+Thus, you can burn `5 + 2 + 1 + 1 = 9` solution, which is the answer.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/Candles.js)
+```javascript
+function solution(candlesNumber, makeNew) {
+  let leftover = candlesNumber;
+  while(leftover >= makeNew){
+    let nc = Math.floor(leftover/makeNew);
+    candlesNumber += nc;
+    leftover = nc + leftover%makeNew;
+  }
+  return candlesNumber;
+}
+```
+
+# Rounders
+___
+We want to turn the given integer into a number that has only one non-zero digit using a tail rounding approach. This means that at each step we take the last non 0 digit of the number and round it to 0 or to 10. If it's less than 5 we round it to 0 if it's larger than or equal to 5 we round it to 10 (rounding to 10 means increasing the next significant digit by 1). The process stops immediately once there is only one non-zero digit left.
+
+Example:
+* For `n = 15`, the output should be `solution(n) = 20`;
+
+* For `n = 1234`, the output should be `solution(n) = 1000`.
+
+`1234 -> 1230 -> 1200 -> 1000.`
+
+* For `n = 1445`, the output should be `solution(n) = 2000`.
+
+`1445 -> 1450 -> 1500 -> 2000.`
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/Rounders.js)
+```javascript
+function solution(n) {
+  let count = 0;
+  let result = '';
+  while(n > 9) {
+    count = ((n % 10) + count >= 5) ? 1 : 0;
+    n = Math.floor(n/10);
+    result = 0 + result;
+  }
+  return Number((count + n) + result);
+}
+```
+
+# IncreaseNumberRoundness
+___
+Define an integer's roundness as the number of trailing zeroes in it.
+
+Given an integer `n`, check if it's possible to increase `n's` roundness by swapping some pair of its digits.
+
+Example:
+* For `n = 902200100`, the output should be `solution(n) = true`.
+
+  One of the possible ways to increase roundness of `n` is to swap digit `1` with digit `0` preceding it: roundness of `902201000` is `3`, and roundness of `n` is `2`.
+  
+  For instance, one may swap the leftmost `0` with `1`.
+
+* For `n = 11000`, the output should be `solution(n) = false`.
+
+Roundness of `n` is `3`, and there is no way to increase it.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/IncreaseNumberRoundness.js)
+```javascript
+function solution(n) {
+  return /0[1-9]/.test(n);
+}
+```
+
+# AppleBoxes
+___
+You have `k` apple boxes full of apples. Each square box of size `m` contains `m × m` apples. You just noticed two interesting properties about the boxes:
+
+1. The smallest box is size `1`, the next one is size `2`,..., all the way up to size `k`.
+2. Boxes that have an odd size contain only yellow apples. Boxes that have an even size contain only red apples.
+
+Your task is to calculate the difference between the number of red apples and the number of yellow apples.
+
+Example:
+* For `k = 5`, the output should be `solution(k) = -15`.
+
+There are `1 + 3 * 3 + 5 * 5 = 35` yellow apples and `2 * 2 + 4 * 4 = 20` red apples, making the answer `20 - 35 = -15`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/AppleBoxes.js)
+```javascript
+function solution(k) {
+  let yellow = 0;
+  let red = 0;
+  while(k) {
+    (k && 1) ? (yellow += k * k) : (red += k * k);
+    k--;
+  }
+  return red-yellow;
+}
+```
+
+# AdditionWithoutCarrying
+___
+A little child is studying arithmetic. They have just learned how to add two integers, written one below another, column by column. But the child always forgets about the important part - carrying.
+
+Given two integers, your task is to find the result that the child will get.
+
+_Note: The child had learned from this site, so feel free to check it out too if you are not familiar with column addition._
+
+Example:
+* For `param1 = 456` and `param2 = 1734`, the output should be `solution(param1, param2) = 1180`.
+```
+456
+1734
++ ____
+  1180
+```
+  The child performs the following operations from right to left:
+
+* `6 + 4 = 10` but the child forgets about carrying the `1` and just writes down the `0` in the last column
+* `5 + 3 = 8`
+* `4 + 7 = 11` but the child forgets about the leading `1` and just writes down `1` under `4` and `7`.
+* There is no digit in the first number corresponding to the leading digit of the second one, so the child imagines that `0` is written before `456`. Thus, they get `0 + 1 = 1`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/AdditionWithoutCarrying.js)
+```javascript
+function solution(param1, param2) {
+  let result = '';
+  while(param1 || param2){
+    result = (((param1%10)+(param2%10))%10).toString() + result;
+    param1 = Math.floor(param1/10);
+    param2 = Math.floor(param2/10);
+  }
+  return Number(result);
+}
+```
+
+# Lineup
+___
+To prepare his students for an upcoming game, the sports coach decides to try some new training drills. To begin with, he lines them up and starts with the following warm-up exercise: when the coach says `L`, he instructs the students to turn to the left. Alternatively, when he says `R`, they should turn to the right. Finally, when the coach says `A`, the students should turn around.
+
+Unfortunately some students (not all of them, but at least one) can't tell left from right, meaning they always turn right when they hear `L` and left when they hear `R`. The coach wants to know how many times the students end up facing the same direction.
+
+Given the list of commands the coach has given, count the number of such commands after which the students will be facing the same direction.
+
+Example:
+* For `commands = "LLARL"`, the output should be `solution(commands) = 3`.
+
+Let's say that there are `4` students, and the second one can't tell left from right. In this case, only after the second, third and fifth commands will the students face the same direction.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/Lineup.js)
+```javascript
+function solution(commands) {
+  let sum = 0;
+  let same = true;
+  for (let i = 0; i < commands.length; i++) {
+    same = (!same && commands[i] !== 'A') || (same && commands[i] === 'A');
+    if (same) sum++;
+  }
+  return sum;
+}
+```
+
+# MagicalWell
+___
+You are standing at a magical well. It has two positive integers written on it: `a` and `b`. Each time you cast a magic marble into the well, it gives you `a * b` dollars and then both `a` and `b` increase by 1. You have `n` magic marbles. How much money will you make?
+
+Example:
+* For `a = 1`, `b = 2`, and `n = 2`, the output should be `solution(a, b, n) = 8`.
+
+You will cast your first marble and get `$2`, after which the numbers will become `2` and `3`. When you cast your second marble, the well will give you `$6`. Overall, you'll make `$8`. So, the output is `8`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/MagicalWell.js)
+```javascript
+function solution(a, b, n) {
+  let total = 0;
+  for(let i = 0; i < n; i++) {
+    total += a * b;
+    a++; b++;
+  }
+  return total;
+}
+```
+
+# CountSumofTwoRepresentations2
+___
+Given integers `n`, `l` and `r`, find the number of ways to represent `n` as a sum of two integers `A` and `B` such that `l ≤ A ≤ B ≤ r`.
+
+Example:
+* For `n = 6`, `l = 2`, and `r = 4`, the output should be `solution(n, l, r) = 2`.
+
+There are just two ways to write `6` as `A + B`, where `2 ≤ A ≤ B ≤ 4: 6 = 2 + 4` and `6 = 3 + 3`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/CountSumofTwoRepresentations2.js)
+```javascript
+function solution(n, l, r) {
+  if (2 * r < n || 2 * l > n) return 0;
+  let min = Math.max(l, n - r);
+  let max = Math.min(r, n - l);
+  let mid = Math.floor((max + min) / 2);
+  return mid - min + 1;
+}
+```
+
+# LeastFactorial
+___
+Given an integer `n`, find the minimal `k` such that
+
+* `k = m!` (where `m! = 1 * 2 * ... * m`) for some integer `m`;
+* `k >= n`.
+In other words, find the smallest factorial which is not less than `n`.
+
+Example:
+* For `n = 17`, the output should be `solution(n) = 24`.
+
+`17 < 24 = 4! = 1 * 2 * 3 * 4, while 3! = 1 * 2 * 3 = 6 < 17)`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/LeastFactorial.js)
+```javascript
+function solution(n) {
+  let result = 1;
+  let i = 1;
+  while (result < n) {
+    result *= ++i;
+  }
+  return result;
+}
+```
+
 # EqualPairofBits
 ___
 _Implement the missing code, denoted by ellipses. You may not modify the pre-existing code._
@@ -7,7 +278,7 @@ You're given two integers, `n` and `m`. Find position of the rightmost pair of e
 Return the value of `2position_of_the_found_pair` (0-based).
 
 Example:
-For `n = 10` and `m = 11`, the output should be
+* For `n = 10` and `m = 11`, the output should be
 `solution(n, m) = 2`.
 
 `1010 = 10102, 1110 = 10112`, the position of the rightmost pair of equal bits is the bit at position `1` (0-based) from the right in the binary representations.
