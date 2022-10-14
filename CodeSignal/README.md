@@ -1,3 +1,19 @@
+# ArrayReplace2
+___
+Given an array of integers, replace all the occurrences of `elemToReplace` with `substitutionElem`.
+
+Example:
+
+* For `inputArray = [1, 2, 1]`, `elemToReplace = 1`, and `substitutionElem = 3`, the output should be
+  `solution(inputArray, elemToReplace, substitutionElem) = [3, 2, 3]`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/ArrayReplace2.js)
+```javascript
+function solution(inputArray, elemToReplace, substitutionElem) {
+  return inputArray.map(element => element === elemToReplace ? substitutionElem : element);
+}
+```
+
 # CreateArray
 ___
 Given an integer `size`, return array of length `size` filled with `1s`.
