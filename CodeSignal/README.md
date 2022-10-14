@@ -1,3 +1,73 @@
+# MakeArrayConsecutive2(1)
+___
+Ratiorg got `statues` of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by `1`. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
+
+Example:
+* For `statues = [6, 2, 3, 8]`, the output should be `solution(statues) = 3`.
+
+Ratiorg needs statues of sizes `4`, `5` and `7`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/MakeArrayConsecutive2(1).js)
+```javascript
+function solution(statues) {
+  let min = Math.min(...statues);
+  let max = Math.max(...statues);
+  let len = statues.length;
+  return max - min - len + 1
+}
+```
+
+# ReplaceMiddle
+___
+We define the middle of the array `arr` as follows:
+
+* if `arr` contains an odd number of elements, its _middle_ is the element whose index number is the same when counting from the beginning of the array and from its end;
+* if `arr` contains an even number of elements, its _middle_ is the sum of the two elements whose index numbers when counting from the beginning and from the end of the array differ by one.
+
+Given array `arr`, your task is to find its _middle_, and, if it consists of two elements, replace those elements with the value of _middle_. Return the resulting array as the answer.
+
+Example:
+* For `arr = [7, 2, 2, 5, 10, 7]`, the output should be `solution(arr) = [7, 2, 7, 10, 7]`.
+
+* For `arr = [-5, -5, 10]`, the output should be `solution(arr) = [-5, -5, 10]`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/ReplaceMiddle.js)
+```javascript
+function solution(arr) {
+    if (arr.length % 2 === 0) {
+        let middlePosition = Math.floor(arr.length / 2);
+        let middle = arr[middlePosition] + arr[middlePosition - 1];
+        arr.splice(middlePosition - 1, 2, middle);
+    }
+    return arr;
+}
+```
+
+# IsSmooth
+___
+We define the middle of the array `arr` as follows:
+
+* if `arr` contains an odd number of elements, its _middle_ is the element whose index number is the same when counting from the beginning of the array and from its end;
+* if `arr` contains an even number of elements, its _middle_ is the sum of the two elements whose index numbers when counting from the beginning and from the end of the array differ by one.
+
+An array is called _smooth_ if its first and its last elements are equal to one another and to the _middle_. Given an array `arr`, determine if it is _smooth_ or not.
+
+Example:
+* For `arr = [7, 2, 2, 5, 10, 7]`, the output should be s`olution(arr) = true`.
+
+The first and the last elements of arr are equal to `7`, and its middle also equals` 2 + 5 = 7`. Thus, the array is smooth and the output is true.
+
+* For `arr = [-5, -5, 10]`, the output should be `solution(arr) = false`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/IsSmooth.js)
+```javascript
+function solution(arr) {
+    let middle = Math.floor(arr.length / 2);
+    let middleTwoElement = arr[middle] + (arr.length % 2 ? 0 : arr[middle - 1]);
+    return arr[0] === middleTwoElement && middleTwoElement === arr[arr.length - 1];
+}
+```
+
 # RemoveArrayPart
 ___
 Remove a part of a given array between given 0-based indexes `l` and `r` (inclusive).
