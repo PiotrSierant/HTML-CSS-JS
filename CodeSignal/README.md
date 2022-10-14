@@ -1,3 +1,38 @@
+# ConcatenateArrays
+___
+Given two arrays of integers `a` and `b`, obtain the array formed by the elements of `a` followed by the elements of `b`.
+
+Example:
+* For `a = [2, 2, 1]` and `b = [10, 11]`, the output should be `solution(a, b) = [2, 2, 1, 10, 11]`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/ConcatenateArrays.js)
+```javascript
+function solution(a, b) {
+  return a.concat(b)
+}
+```
+
+# FirstReverseTry
+___
+Reversing an array can be a tough task, especially for a novice programmer. Mary just started coding, so she would like to start with something basic at first. Instead of reversing the array entirely, she wants to swap just its first and last elements.
+
+Given an array `arr`, swap its first and last elements and return the resulting array.
+
+Example:
+* For `arr = [1, 2, 3, 4, 5]`, the output should be `solution(arr) = [5, 2, 3, 4, 1]`.
+
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/FirstReverseTry.js)
+```javascript
+function solution(arr) {
+  if (arr.length < 2) return arr;
+
+  let first = arr.shift();
+  let last = arr.pop();
+  return [last, ...arr, first];
+}
+```
+
 # ArrayReplace2
 ___
 Given an array of integers, replace all the occurrences of `elemToReplace` with `substitutionElem`.
