@@ -1,3 +1,18 @@
+# CreateArray
+___
+Given an integer `size`, return array of length `size` filled with `1s`.
+
+Example:
+
+* For `size = 4`, the output should be `solution(size) = [1, 1, 1, 1]`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/CreateArray.js)
+```javascript
+function solution(size) {
+  return Array(size).fill(1);
+}
+```
+
 # CountBlackCells
 ___
 Imagine a white rectangular grid of `n` rows and `m` columns divided into two parts by a diagonal line running from the upper left to the lower right corner. Now let's paint the grid in two colors according to the following rules:
