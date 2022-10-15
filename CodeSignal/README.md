@@ -1,3 +1,29 @@
+# IsSumofConsecutive2
+___
+Find the number of ways to express `n` as sum of some (at least two) consecutive positive integers.
+
+Example:
+* For `n = 9`, the output should be `solution(n) = 2`.
+
+There are two ways to represent `n = 9: 2 + 3 + 4 = 9` and `4 + 5 = 9`.
+
+* For `n = 8`, the output should be `solution(n) = 0`.
+
+There are no ways to represent `n = 8`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/IsSumofConsecutive2.js)
+```javascript
+function solution(n) {
+  let result = 0;
+  for (let i = 2; i < n / 2; i++) {
+    i % 2
+            ? Math.round(n / i) * i === n && n / i > i / 2 && result++
+            : Math.floor(n / i) * i !== n && (Math.floor(n / i) + Math.ceil(n / i)) === (n * 2 / i) && (n / i > i / 2) && result++
+  }
+  return result;
+}
+```
+
 # MakeArrayConsecutive2(1)
 ___
 Ratiorg got `statues` of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by `1`. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
