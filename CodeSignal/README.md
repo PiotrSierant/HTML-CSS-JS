@@ -1,7 +1,5 @@
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="public/images/logo_darkblue.svg" alt="Logo" width="80" height="80">
-  </a>
+<img src="https://github.com/PiotrSierant/portfolioWeb/blob/master/public/images/logo_darkblue.svg" alt="Logo" width="80" height="80">
 
 <h3 align="center">CodeSignal</h3>
 </div>
