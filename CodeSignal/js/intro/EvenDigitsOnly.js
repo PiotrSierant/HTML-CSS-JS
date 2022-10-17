@@ -7,7 +7,7 @@ function solution(n) {
             odd.push(element)
         }
     }
-    return odd.length > 0 ? false : true;
+    return odd.length <= 0;
 }
 const x = 248622;
 const z = 642386;

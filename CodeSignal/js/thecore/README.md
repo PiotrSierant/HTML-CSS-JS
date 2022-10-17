@@ -1,3 +1,73 @@
+# SquareDigitsSequence
+___
+Consider a sequence of numbers `a0, a1, ..., an`, in which an element is equal to the sum of squared digits of the previous element. The sequence ends once an element that has already been in the sequence appears again.
+
+Given the first element `a0`, find the length of the sequence.
+Example:
+* For `a0 = 16`, the output should be `solution(a0) = 9`.
+* For `a0 = 103`, the output should be `solution(a0) = 4`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/SquareDigitsSequence.js)
+```javascript
+function solution(a0) {
+  let h = [a0];
+  let n = String(a0).split('').map(Number).map(el => el * el).reduce((a, b) => a + b);
+  while (h.indexOf(n) < 0) {
+    h.push(n);
+    n = String(n).split('').map(Number).map(el => el * el).reduce((a, b) => a + b);
+  }
+  return h.length + 1;
+}
+```
+
+# PagesNumberingWithInk
+___
+You work in a company that prints and publishes books. You are responsible for designing the page numbering mechanism in the printer. You know how many digits a printer can print with the leftover ink. Now you want to write a function to determine what the last page of the book is that you can number given the `current` page and `numberOfDigits` left. A page is considered numbered if it has the full number printed on it (e.g. if we are working with page `102` but have ink only for two digits then this page will not be considered numbered).
+
+It's guaranteed that you can number the `current` page, and that you can't number the last one in the book.
+
+Example:
+* For `current = 1` and `numberOfDigits = 5`, the output should be `solution(current, numberOfDigits) = 5`.
+  * The following numbers will be printed: `1, 2, 3, 4, 5.`
+
+* For `current = 21` and `numberOfDigits = 5`, the output should be `solution(current, numberOfDigits) = 22`.
+  * The following numbers will be printed: `21, 22.`
+
+* For `current = 8` and `numberOfDigits = 4`, the output should be `solution(current, numberOfDigits) = 10`.
+
+  * The following numbers will be printed: `8, 9, 10.`
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/PagesNumberingWithInk.js)
+```javascript
+function solution(current, numberOfDigits) {
+  while (numberOfDigits > 0) {
+    let n;
+    if (current >= 1000) {
+      n = Math.floor(numberOfDigits / 4);
+      numberOfDigits = 0;
+      current += n;
+    } else if (current >= 100) {
+      n = Math.min(1000 - current, Math.floor(numberOfDigits / 3))
+      current += n;
+      numberOfDigits -= n * 3;
+      if (numberOfDigits < 4)
+        numberOfDigits = 0
+    } else if (current >= 10) {
+      n = Math.min(100 - current, Math.floor(numberOfDigits / 2))
+      current += n;
+      numberOfDigits -= n * 2;
+      if (numberOfDigits < 3)
+        numberOfDigits = 0;
+    } else {
+      n = Math.min(10 - current, numberOfDigits)
+      current += n;
+      numberOfDigits -= n;
+    }
+  }
+  return current - 1;
+}
+```
+
 # IsPower
 ___
 Determine if the given number is a power of some non-negative integer.

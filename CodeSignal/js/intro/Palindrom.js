@@ -24,5 +24,5 @@ function palindrom(inputString) {
 
 function palindrom2(inputString) {
     const newStr = [...inputString];
-    return newStr.reverse().join("") == newStr.join("")
+    return newStr.reverse().join("") === newStr.join("")
 }

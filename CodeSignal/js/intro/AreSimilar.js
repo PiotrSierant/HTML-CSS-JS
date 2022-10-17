@@ -3,6 +3,6 @@ function solution(a, b) {
     const newB = b.filter((element,index) => element !== a[index])
     return newA.length === 0 || (newA.length === 2 && newA.join('') === newB.reverse().join(''))
 }
-a = [1, 2, 3] ;
-b = [1, 2, 3];
+let a = [1, 2, 3] ;
+let b = [1, 2, 3];
 console.log(solution(a, b));
