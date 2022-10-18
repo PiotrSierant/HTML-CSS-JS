@@ -1,3 +1,63 @@
+# CrosswordFormation
+___
+You're a crossword fanatic, and have finally decided to try and create your own. However, you also love symmetry and good design, so you come up with a set of rules they should follow:
+
+* the crossword must contain exactly four words;
+* these four words should form four pairwise intersections;
+* all words must be written either left-to-right or top-to-bottom;
+* the area of the rectangle formed by empty cells inside the intersections isn't equal to zero.
+
+Given `4` words, find the number of ways to make a crossword following the above-described rules. Note that two crosswords which differ by rotation are considered different.
+
+Example:
+* For `words = ["crossword", "square", "formation", "something"]`, the output should be `solution(words) = 6`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/CrosswordFormation.js)
+```javascript
+function getCombos(w1, w2, w3, w4) {
+  let count = 0;
+  for (let i = 0; i < w1.length - 1; i ++) {
+    for (let j = 0; j < w2.length - 1; j ++) {
+      if (w1[i] !== w2[j]) continue;
+      for (let k = i + 2; k < w1.length; k++) {
+        for (let l = 0; l < w3.length - 1; l++) {
+          if (w1[k] !== w3[l]) continue;
+          const height = k - i;
+          for (let x = j + 2; x< w2.length; x++) {
+            for (let y = 0; y < w4.length - 1; y++) {
+              if (w2[x] !== w4[y]) continue;
+              const width = l + x - j;
+              if (y + height < w4.length && w4[y + height] === w3[l + x - j] && width > 1 && height > 1) {
+                count++;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return count;
+}
+
+function solution(words) {
+  let count = 0;
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      if (j === i) continue;
+      for (let k = 0; k < 4; k++) {
+        if (k === i || k === j) continue;
+        for (let l = 0; l < 4; l++) {
+          if (l === i || l === j || l === k) continue;
+          count += getCombos(words[i], words[j], words[k], words[l]);
+        }
+      }
+
+    }
+  }
+  return count;
+}
+```
+
 # RectangleRotation
 ___
 A rectangle with sides equal to even integers `a` and `b` is drawn on the Cartesian plane. Its center (the intersection point of its diagonals) coincides with the point `(0, 0)`, but the sides of the rectangle are not parallel to the axes; instead, they are forming `45` degree angles with the axes.
