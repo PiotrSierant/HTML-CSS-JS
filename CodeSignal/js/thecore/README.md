@@ -1,3 +1,82 @@
+# RectangleRotation
+___
+A rectangle with sides equal to even integers `a` and `b` is drawn on the Cartesian plane. Its center (the intersection point of its diagonals) coincides with the point `(0, 0)`, but the sides of the rectangle are not parallel to the axes; instead, they are forming `45` degree angles with the axes.
+
+How many points with integer coordinates are located inside the given rectangle (including on its sides)?
+
+Example:
+* For `a = 6` and `b = 4`, the output should be `solution(a, b) = 23`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/RectangleRotation.js)
+```javascript
+function solution(a, b) {
+  let A = Math.floor(Math.sqrt(a * a / 2));
+  let B = Math.floor(Math.sqrt(b * b / 2));
+  return (A * B + Math.floor((A + B) / 2)) * 2 + 1;
+}
+```
+
+# WeakNumbers
+___
+We define the _weakness_ of number `x` as the number of positive integers smaller than `x` that have more divisors than `x`.
+
+It follows that the _weaker_ the number, the greater overall _weakness_ it has. For the given integer `n`, you need to answer two questions:
+
+* what is the _weakness_ of the _weakest_ numbers in the range `[1, n]`?
+* how many numbers in the range `[1, n]` have this _weakness_?
+* 
+Return the answer as an array of two elements, where the first element is the answer to the first question, and the second element is the answer to the second question.
+
+Example:
+* For `n = 9`, the output should be `solution(n) = [2, 2]`.
+
+Here are the number of divisors and the specific weakness of each number in range `[1, 9]`:
+
+* __1__: d(1) = 1, weakness(1) = 0;
+* __2__: d(2) = 2, weakness(2) = 0;
+* __3__: d(3) = 2, weakness(3) = 0;
+* __4__: d(4) = 3, weakness(4) = 0;
+* __5__: d(5) = 2, weakness(5) = 1;
+* __6__: d(6) = 4, weakness(6) = 0;
+* __7__: d(7) = 2, weakness(7) = 2;
+* __8__: d(8) = 4, weakness(8) = 0;
+* __9__: d(9) = 3, weakness(9) = 2.
+
+As you can see, the maximal weakness is `2`, and there are `2` numbers with that _weakness_ level.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/WeakNumbers.js)
+```javascript
+function solution(n) {
+  function divisors(x) {
+    let ret = 0;
+    for (let i = 1; i <= x; i++) {
+      if (x % i === 0)
+        ret++;
+    }
+    return ret;
+  }
+  let d = Array(n).fill(0);
+  let w = 0;
+  let wc = 0;
+  let t = 0;
+  for (let i = 1; i <= n; i++) {
+    t = 0;
+    d[i - 1] = divisors(i);
+    for (let j = 1; j < i; j++) {
+      if (d[j - 1] > d[i - 1])
+        t++;
+    }
+    if (t === w) {
+      wc++;
+    } else if (t > w) {
+      w = t;
+      wc = 1;
+    }
+  }
+  return [w, wc];
+}
+```
+
 # ComfortableNumbers
 ___
 Let's say that number `a` feels comfortable with number `b` if `a ≠ b` and `b` lies in the segment `[a - s(a), a + s(a)]`, where `s(x)` is the sum of `x`'s digits.
