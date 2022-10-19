@@ -1,3 +1,25 @@
+# IsTandemRepeat
+___
+Determine whether the given string can be obtained by one concatenation of some string to itself.
+
+Example:
+* For `inputString = "tandemtandem"`, the output should be `solution(inputString) = true`;
+* For `inputString = "qqq"`, the output should be `solution(inputString) = false`;
+* For `inputString = "2w2ww"`, the output should be `solution(inputString) = false`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/IsTandemRepeat.js)
+```javascript
+function solution(inputString) {
+  if(inputString.length % 2 === 1) {
+    return false
+  }
+  const middle = inputString.length / 2
+  const firstPart = inputString.slice(0, middle)
+  const lastPart = inputString.slice(middle)
+  return firstPart === lastPart
+}
+```
+
 # ProperNounCorrection
 ___
 Proper nouns always begin with a capital letter, followed by small letters.
