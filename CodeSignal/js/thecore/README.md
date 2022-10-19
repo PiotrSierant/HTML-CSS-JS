@@ -1,3 +1,34 @@
+# ProperNounCorrection
+___
+Proper nouns always begin with a capital letter, followed by small letters.
+
+Correct a given proper noun so that it fits this statement.
+
+Example:
+* For `noun = "pARiS"`, the output should be `solution(noun) = "Paris"`;
+* For `noun = "John"`, the output should be `solution(noun) = "John"`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/ProperNounCorrection.js)
+```javascript
+function solution(noun) {
+    return noun[0].toUpperCase() + noun.slice(1).toLowerCase();
+}
+```
+
+# EncloseInBrackets
+___
+Given a string, enclose it in round brackets.
+
+Example:
+* For `inputString = "abacaba"`, the output should be `solution(inputString) = "(abacaba)"`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/EncloseInBrackets.js)
+```javascript
+function solution(inputString) {
+    return "(" + inputString + ")"
+}
+```
+
 # CrosswordFormation
 ___
 You're a crossword fanatic, and have finally decided to try and create your own. However, you also love symmetry and good design, so you come up with a set of rules they should follow:
