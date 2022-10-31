@@ -1,3 +1,30 @@
+# StringsConstruction
+___
+Given two strings `a` and `b`, both consisting only of lowercase English letters, your task is to calculate how many strings equal to `a` can be constructed using only letters from the string `b`? Each letter can be used only once and in one string only.
+
+Example:
+* For `a = "abc"` and `b = "abccba"`, the output should be `solution(a, b) = 2`.
+* For `a = "ab"` and `b = "abcbcb"`, the output should be `solution(a, b) = 1`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/StringsConstruction.js)
+```javascript
+function solution(a, b) {
+  const fa = freq(a);
+  const fb = freq(b);
+  console.log( fa, fb);
+  return Object.keys(fa).reduce((result, key) => (
+          Math.min( result, Math.floor( (fb[key]? fb[key] : 0 ) / fa[key] ) )
+  ), 10000);
+}
+
+function freq(s) {
+  return s.split('').reduce((result, l) => {
+    result[l] = result[l]? result[l] + 1 : 1;
+    return result;
+  }, {})
+}
+```
+
 # IsUnstablePair
 ___
 Some file managers sort filenames taking into account case of the letters, others compare strings as if all of the letters are of the same case. That may lead to different ways of filename ordering.
