@@ -1,3 +1,35 @@
+# ConstructSquare
+___
+Given a string consisting of lowercase English letters, find the largest square number which can be obtained by reordering the string's characters and replacing them with any digits you need (leading zeros are not allowed) where same characters always map to the same digits and different characters always map to different digits.
+
+If there is no solution, return -1.
+
+Example:
+* For `s = "ab"`, the output should be
+`solution(s) = 81`.
+
+The largest 2-digit square number with different digits is 81.
+* For `s = "zzz"`, the output should be
+`solution(s) = -1`.
+
+There are no 3-digit square numbers with identical digits.
+* For `s = "aba"`, the output should be
+`solution(s) = 900`.
+
+It can be obtained after reordering the initial string into `baa` and replacing "a" with `0` and "b" with `9`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/ConstructSquare.js)
+```javascript
+const solution = s => {
+  const fn = val =>
+          Object.values([...val].reduce((pre, val) => (pre[val] = -~pre[val], pre), {})).sort().join(``);
+  for (let i = (10 ** s.length) ** 0.5 ^ 0; i > 2; i--) {
+    if (`${i ** 2}`.length === s.length && fn(`${i ** 2}`) === fn(s)) return i ** 2;
+  }
+  return -1;
+};
+```
+
 # CreateAnagram
 ___
 You are given two strings `s` and `t` of the same length, consisting of uppercase English letters. Your task is to find the minimum number of "replacement operations" needed to get some anagram of the string `t` from the string `s`. A replacement operation is performed by picking exactly one character from the string `s` and replacing it by some other character.
