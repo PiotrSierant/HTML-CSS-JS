@@ -1,3 +1,23 @@
+# IsSubstitutionCipher
+___
+A ciphertext alphabet is obtained from the plaintext alphabet by means of rearranging some characters. For example `bacdef...xyz` will be a simple ciphertext alphabet where `a` and `b` are rearranged.
+
+A substitution cipher is a method of encoding where each letter of the plaintext alphabet is replaced with the corresponding (i.e. having the same index) letter of some ciphertext alphabet.
+
+Given two strings, check whether it is possible to obtain them from each other using some (possibly, different) substitution ciphers.
+
+Example:
+* For `string1 = "aacb"` and `string2 = "aabc"`, the output should be
+`solution(string1, string2) = true`.
+
+* For `string1 = "aa"` and `string2 = "bc"`, the output should be
+`solution(string1, string2) = false`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/IsSubstitutionCipher.js)
+```javascript
+const solution = (string1, string2) => [...string1].every((v,i) => string1.indexOf(v) === string2.indexOf(string2[i]));
+```
+
 # StringsConstruction
 ___
 Given two strings `a` and `b`, both consisting only of lowercase English letters, your task is to calculate how many strings equal to `a` can be constructed using only letters from the string `b`? Each letter can be used only once and in one string only.
