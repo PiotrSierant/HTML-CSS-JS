@@ -1,3 +1,24 @@
+# NumbersGrouping
+___
+You are given an array of integers that you want distribute between several groups. The first group should contain numbers from `1` to `104`, the second should contain those from `104 + 1` to `2 * 104`, ..., the `100th` one should contain numbers from `99 * 104 + 1` to `106` and so on.
+
+All the numbers will then be written down in groups to the text file in such a way that:
+
+* the groups go one after another;
+* each non-empty group has a header which occupies one line;
+* each number in a group occupies one line.
+Calculate how many lines the resulting text file will have.
+
+Example:
+* For `a = [20000, 239, 10001, 999999, 10000, 20566, 29999]`, the output should be `solution(a) = 11`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/NumbersGrouping.js)
+```javascript
+function solution(a) {
+  return a.length + new Set(a.map(x=>Math.ceil(x/10000))).size
+}
+```
+
 # ConstructSquare
 ___
 Given a string consisting of lowercase English letters, find the largest square number which can be obtained by reordering the string's characters and replacing them with any digits you need (leading zeros are not allowed) where same characters always map to the same digits and different characters always map to different digits.
