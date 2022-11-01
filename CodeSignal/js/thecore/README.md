@@ -1,3 +1,31 @@
+# DifferentSquares
+___
+Given a rectangular matrix containing only digits, calculate the number of different `2 × 2` squares in it.
+
+Example:
+* For
+```
+matrix =  [[1, 2, 1],
+          [2, 2, 2],
+          [2, 2, 2],
+          [1, 2, 3],
+          [2, 2, 1]]
+```
+the output should be `solution(matrix) = 6`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/DifferentSquares.js)
+```javascript
+function solution(matrix) {
+  s = new Set();
+  for (i = 0; i < matrix.length - 1; i++) {
+    for (j = 0; j < matrix[i].length - 1; j++) {
+      s.add("" + matrix[i][j] + matrix[i][j + 1] + matrix[i + 1][j] + matrix[i + 1][j + 1])
+    }
+  }
+  return s.size
+}
+```
+
 # NumbersGrouping
 ___
 You are given an array of integers that you want distribute between several groups. The first group should contain numbers from `1` to `104`, the second should contain those from `104 + 1` to `2 * 104`, ..., the `100th` one should contain numbers from `99 * 104 + 1` to `106` and so on.
