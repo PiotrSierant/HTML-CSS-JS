@@ -1,3 +1,23 @@
+# NumberOfClans
+___
+Let's call two integers `A` and `B` friends if each integer from the array `divisors` is either a divisor of both `A` and `B` or neither `A` nor `B`. If two integers are friends, they are said to be in the same clan. How many clans are the integers from `1` to `k`, inclusive, broken into?
+
+Example:
+* For `divisors = [2, 3]` and `k = 6`, the output should be
+  `solution(divisors, k) = 4`.
+
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/NumberOfClans.js)
+```javascript
+function solution(d, k) {
+  let mySet = new Set();
+  for(let i=1; i<=k; i+=1) {
+    mySet.add((d.map(elm=> (i%elm) === 0 ? 0 : 1)).toString())
+  }
+  return mySet.size
+}
+```
+
 # MostFrequentDigitSum
 ___
 A `step(x)` operation works like this: it changes a number `x` into `x - s(x)`, where `s(x)` is the sum of `x`'s digits. You like applying functions to numbers, so given the number `n`, you decide to build a decreasing sequence of numbers: `n`, `step(n)`, `step(step(n))`, etc., with `0` as the last element.
