@@ -1,3 +1,19 @@
+# AllLongestStrings
+___
+Given an array of strings, return another array containing all of its longest strings.
+
+Example:
+* For `inputArray = ["aba", "aa", "ad", "vcd", "aba"]`, the output should be `solution(inputArray) = ["aba", "vcd", "aba"]`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/AllLongestStrings.js)
+```javascript
+function solution(inputArray) {
+  const arrayOfLength = inputArray.map(element => element.length);
+  const theBiggestLength = Math.max(...arrayOfLength);
+  return inputArray.filter(element => element.length === theBiggestLength)
+}
+```
+
 # HouseNumbersSum
 ___
 A boy is walking a long way from school to his home. To make the walk more fun he decides to add up all the numbers of the houses that he passes by during his walk. Unfortunately, not all of the houses have numbers written on them, and on top of that the boy is regularly taking turns to change streets, so the numbers don't appear to him in any particular order.
