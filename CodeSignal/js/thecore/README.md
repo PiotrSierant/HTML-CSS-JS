@@ -1,3 +1,26 @@
+# AlphabetSubsequence
+___
+Check whether the given string is a subsequence of the plaintext alphabet.
+
+Example:
+* For `s = "effg"`, the output should be `solution(s) = false`;
+* For `s = "cdce"`, the output should be `solution(s) = false`;
+* For `s = "ace"`, the output should be `solution(s) = true`;
+* For `s = "bxz"`, the output should be `solution(s) = true`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/AlphabetSubsequence.js)
+```javascript
+function solution(s) {
+  const array = s.split('').map(element => element.charCodeAt());
+  for(let i = 0; i < array.length; i++) {
+    if(array[i] >= array[i+1]) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+
 # HouseOfCats
 ___
 There are some people and cats in a house. You are given the number of legs they have all together. Your task is to return an array containing every possible number of people that could be in the house sorted in ascending order. It's guaranteed that each person has `2` legs and each cat has `4` legs.
