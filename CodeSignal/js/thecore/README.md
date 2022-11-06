@@ -1,3 +1,30 @@
+# MinimalNumberOfCoins
+___
+You find yourself in Bananaland trying to buy a banana. You are super rich so you have an unlimited supply of banana-coins, but you are trying to use as few coins as possible.
+
+The coin values available in Bananaland are stored in a sorted array `coins`. `coins[0] = 1`, and for each `i (0 < i < coins.length) coins[i]` is divisible by `coins[i - 1]`. Find the minimal number of banana-coins you'll have to spend to buy a banana given the banana's `price`.
+
+Example:
+* For `coins = [1, 2, 10]` and `price = 28`, the output should be
+  `solution(coins, price) = 6`.
+
+You have to use `10` twice, and `2` four times.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/MinimalNumberOfCoins.js)
+```javascript
+function solution(coins, price) {
+  let coinCount = 0;
+
+  for (let i = coins.length - 1; i >=0; i--) {
+    while (price >= coins[i]) {
+      price -= coins[i];
+      coinCount++;
+    }
+  }
+  return coinCount;
+}
+```
+
 # AlphabetSubsequence
 ___
 Check whether the given string is a subsequence of the plaintext alphabet.
