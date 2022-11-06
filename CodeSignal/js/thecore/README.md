@@ -1,3 +1,24 @@
+# SwitchLights
+___
+`N` candles are placed in a row, some of them are initially lit. For each candle from the `1st` to the `Nth` the following algorithm is applied: if the observed candle is lit then states of this candle and all candles before it are changed to the opposite. Which candles will remain lit after applying the algorithm to all candles in the order they are placed in the line?
+
+Example:
+* For `a = [1, 1, 1, 1, 1]`, the output should be
+  `solution(a) = [0, 1, 0, 1, 0]`.
+* For `a = [0, 0]`, the output should be
+  `solution(a) = [0, 0]`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/SwitchLights.js)
+```javascript
+function solution(a) {
+  let num = a.reduce((a,b)=> a+b,0)
+  return a.map(elm => {
+    if(elm === 1) num -=1
+    return num%2
+  })
+}
+```
+
 # AddBorder
 ___
 Given a rectangular matrix of characters, add a border of asterisks(*) to it.
