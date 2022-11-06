@@ -1,3 +1,42 @@
+# ElectionsWinners
+___
+Elections are in progress!
+
+Given an array of the numbers of votes given to each of the candidates so far, and an integer `k` equal to the number of voters who haven't cast their vote yet, find the number of candidates who still have a chance to win the election.
+
+The winner of the election must secure strictly more votes than any other candidate. If two or more candidates receive the same (maximum) number of votes, assume there is no winner at all.
+
+Example:
+* For `votes = [2, 3, 5, 2]` and `k = 3`, the output should be
+  `solution(votes, k) = 2`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/ElectionsWinners.js)
+```javascript
+function solution(votes, k) {
+  const votesMax = Math.max(...votes);
+  const indexes = [];
+
+  for (let index = 0; index < votes.length; index++) {
+    if (votes[index] === votesMax) {
+      indexes.push(index);
+    }
+  }
+
+  if(k === 0 && indexes.length === 1) {
+    return 1
+  }
+
+  const raisedVotes = votes.map(element => {
+    return element + k;
+  })
+  const allTheVotesTheyCanWin = raisedVotes.filter(element => {
+    return element > votesMax;
+  })
+
+  return allTheVotesTheyCanWin.length;
+}
+```
+
 # TimedReading
 ___
 Timed Reading is an educational tool used in many schools to improve and advance reading skills. A young elementary student has just finished his very first timed reading exercise. Unfortunately he's not a very good reader yet, so whenever he encountered a word longer than `maxLength`, he simply skipped it and read on.
