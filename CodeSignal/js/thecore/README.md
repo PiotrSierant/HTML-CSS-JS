@@ -1,3 +1,32 @@
+# AddBorder
+___
+Given a rectangular matrix of characters, add a border of asterisks(*) to it.
+
+Example:
+* For
+
+```
+picture = ["abc",
+          "ded"]
+```
+the output should be
+
+```
+solution(picture) = ["*****",
+                      "*abc*",
+                      "*ded*",
+                      "*****"]
+```
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/AddBorder.js)
+```javascript
+function solution(picture) {
+    const newArray = picture.map(element => '*' + element + '*')
+    const startAndEnd = '*'.repeat(picture[0].length + 2)
+    return [startAndEnd, ...newArray, startAndEnd] 
+}
+```
+
 # MinimalNumberOfCoins
 ___
 You find yourself in Bananaland trying to buy a banana. You are super rich so you have an unlimited supply of banana-coins, but you are trying to use as few coins as possible.
