@@ -1,3 +1,32 @@
+# AreSimilar
+___
+Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
+
+Given two arrays `a` and `b`, check whether they are similar.
+
+Example:
+* For `a = [1, 2, 3]` and `b = [1, 2, 3]`, the output should be
+`solution(a, b) = true`.
+
+The arrays are equal, no need to swap any elements.
+
+* For `a = [1, 2, 3]` and `b = [2, 1, 3]`, the output should be
+`solution(a, b) = true`.
+
+We can obtain b from a by swapping 2 and 1 in b.
+
+* For `a = [1, 2, 2]` and `b = [2, 1, 1]`, the output should be
+`solution(a, b) = false`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/AreSimilar.js)
+```javascript
+function solution(a, b) {
+  const newA = a.filter((element,index) => element !== b[index])
+  const newB = b.filter((element,index) => element !== a[index])
+  return newA.length === 0 || (newA.length === 2 && newA.join('') === newB.reverse().join(''))
+}
+```
+
 # IntegerToStringOfFixedWidth
 ___
 Given a positive integer number and a certain length, we need to modify the given number to have a specified length. We are allowed to do that either by cutting out leading digits (if the number needs to be shortened) or by adding 0s in front of the original number.
