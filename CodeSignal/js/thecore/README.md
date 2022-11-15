@@ -1,3 +1,33 @@
+# Cipher26
+___
+You've intercepted an encrypted message, and you are really curious about its contents. You were able to find out that the message initially contained only lowercase English letters, and was encrypted with the following cipher:
+
+* Let all letters from 'a' to 'z' correspond to the numbers from 0 to 25, respectively.
+* The number corresponding to the ith letter of the encrypted message is then equal to the sum of numbers corresponding to the first i letters of the initial unencrypted message modulo 26.
+
+Now that you know how the message was encrypted, implement the algorithm to decipher it.
+
+Example:
+* For `message = "taiaiaertkixquxjnfxxdh"`, the output should be
+`solution(message) = "thisisencryptedmessage"`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/Cipher26.js)
+```javascript
+function solution(message) {
+  let res = "";
+  let sum = 0;
+  for (let i of message){
+    let a = i.charCodeAt(0)-97;
+    a -= sum;
+    while (a<0)
+      a+=26;
+    res+=String.fromCharCode(a+97);
+    sum+=a;
+  }
+  return res;
+}
+```
+
 # NewNumeralSystem
 ___
 Your Informatics teacher at school likes coming up with new ways to help you understand the material. When you started studying numeral systems, he introduced his own numeral system, which he's convinced will help clarify things. His numeral system has base 26, and its digits are represented by English capital letters - A for 0, B for 1, and so on.
