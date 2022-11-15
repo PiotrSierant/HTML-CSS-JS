@@ -1,3 +1,22 @@
+# ReflectString
+___
+Define an alphabet reflection as follows: a turns into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a.
+
+Define a string reflection as the result of applying the alphabet reflection to each of its characters.
+
+Reflect the given string.
+
+Example:
+* For `inputString = "name"`, the output should be
+`solution(inputString) = "mznv"`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/ReflectString.js)
+```javascript
+function solution(inputString) {
+  return inputString.split("").map(x => String.fromCharCode(219-x.charCodeAt(0))).join("")
+}
+```
+
 # CharacterParity
 ___
 Given a character, check if it represents an odd digit, an even digit or not a digit at all.
