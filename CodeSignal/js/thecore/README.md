@@ -1,3 +1,34 @@
+# HigherVersion
+___
+Given two version strings composed of several non-negative decimal fields separated by periods (`.`), both strings contain equal number of numeric fields. Return `true` if the first version is higher than the second version and `false` otherwise.
+
+The syntax follows the regular semver ordering rules:
+
+```
+1.0.5 < 1.1.0 < 1.1.5 < 1.1.10 < 1.2.0 < 1.2.2
+< 1.2.10 < 1.10.2 < 2.0.0 < 10.0.0
+```
+There are no leading zeros in any of the numeric fields, i.e. you do not have to handle inputs like `100.020.003` (it would instead be given as `100.20.3`).
+
+Example:
+* For `ver1 = "1.2.2"` and `ver2 = "1.2.0"`, the output should be
+`solution(ver1, ver2) = true`;
+* For `ver1 = "1.0.5"` and `ver2 = "1.1.0"`, the output should be
+`solution(ver1, ver2) = false`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/.js)
+```javascript
+function solution(ver1, ver2) {
+  let ver1sp = ver1.split('.').map(Number);
+  let ver2sp = ver2.split('.').map(Number);
+  for(let i in ver1sp) {
+    if (ver2sp[i]<ver1sp[i]) return true;
+    if (ver2sp[i]>ver1sp[i]) return false;
+  }
+  return false;
+}
+```
+
 # StolenLunch
 ___
 When you recently visited your little nephew, he told you a sad story: there's a bully at school who steals his lunch every day, and locks it away in his locker. He also leaves a note with a strange, coded message. Your nephew gave you one of the notes in hope that you can decipher it for him. And you did: it looks like all the digits in it are replaced with letters and vice versa. Digit 0 is replaced with 'a', 1 is replaced with 'b' and so on, with digit 9 replaced by 'j'.
