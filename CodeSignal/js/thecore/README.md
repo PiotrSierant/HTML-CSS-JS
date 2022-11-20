@@ -1,3 +1,26 @@
+# Decipher
+___
+Consider the following ciphering algorithm:
+
+* For each character replace it with its code.
+* Concatenate all of the obtained numbers.
+
+Given a ciphered string, return the initial one if it is known that it consists only of lowercase letters.
+
+Example:
+* For `cipher = "10197115121"`, the output should be
+  `solution(cipher) = "easy"`.
+
+Explanation: `charCode('e') = 101`, `charCode('a') = 97`, `charCode('s') = 115` and `charCode('y') = 121`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/Decipher.js)
+```javascript
+function solution(cipher) {
+  return String.fromCharCode(...cipher.match(/1..|../g))
+}
+
+```
+
 # HigherVersion
 ___
 Given two version strings composed of several non-negative decimal fields separated by periods (`.`), both strings contain equal number of numeric fields. Return `true` if the first version is higher than the second version and `false` otherwise.
@@ -16,7 +39,7 @@ Example:
 * For `ver1 = "1.0.5"` and `ver2 = "1.1.0"`, the output should be
 `solution(ver1, ver2) = false`.
 
-[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/.js)
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/HigherVersion.js)
 ```javascript
 function solution(ver1, ver2) {
   let ver1sp = ver1.split('.').map(Number);
