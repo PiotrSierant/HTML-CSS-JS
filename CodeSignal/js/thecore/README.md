@@ -1,3 +1,37 @@
+# ArrayConversion
+___
+Given an array of 2k integers (for some integer k), perform the following operations until the array contains only one element:
+
+* On the `1st, 3rd, 5th`, etc. iterations (1-based) replace each pair of consecutive elements with their sum;
+* On the `2nd, 4th, 6th`, etc. iterations replace each pair of consecutive elements with their product.
+After the algorithm has finished, there will be a single element left in the array. Return that element.
+
+Example:
+* For `inputArray = [1, 2, 3, 4, 5, 6, 7, 8]`, the output should be
+`solution(inputArray) = 186`.
+
+We have `[1, 2, 3, 4, 5, 6, 7, 8] -> [3, 7, 11, 15] -> [21, 165] -> [186]`, so the answer is `186`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/ArrayConversion.js)
+```javascript
+function solution(inputArray) {
+  let result = [...inputArray];
+
+  const add = (a,b) => a+b;
+  const mul = (a,b) => a*b;
+
+  for(let flip = true; result.length > 1; flip=!flip) {
+    let next = [];
+    let op = flip ? add : mul;
+    for(let i = 0; i < result.length-1; i+=2) {
+      next.push(op(result[i],result[i+1]));
+    }
+    result=[...next];
+  }
+  return result[0];
+}
+```
+
 # AlphanumericLess
 ___
 An alphanumeric ordering of strings is defined as follows: each string is considered as a sequence of tokens, where each token is a letter or a number (as opposed to an isolated digit, as is the case in lexicographic ordering). For example, the tokens of the string "ab01c004" are [a, b, 01, c, 004]. In order to compare two strings, we'll first break them down into tokens and then compare the corresponding pairs of tokens with each other (i.e. compare the first token of the first string with the first token of the second string, etc).
