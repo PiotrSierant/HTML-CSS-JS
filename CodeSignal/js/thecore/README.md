@@ -1,3 +1,18 @@
+# ArrayPreviousLess
+___
+Given array of integers, for each position `i`, search among the previous positions for the last (from the left) position that contains a smaller value. Store this value at position `i` in the answer. If no such value can be found, store `-1` instead.
+
+Example:
+* For `items = [3, 5, 2, 4, 5]`, the output should be `solution(items) = [-1, 3, -1, 2, 4]`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/ArrayPreviousLess.js)
+```javascript
+function solution(items) {
+    return items.map((e, i) =>
+        items.slice(0, i).reverse().find(v => v < e) || -1)
+}
+```
+
 # ArrayConversion
 ___
 Given an array of 2k integers (for some integer k), perform the following operations until the array contains only one element:
