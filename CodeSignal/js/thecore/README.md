@@ -1,3 +1,22 @@
+# CyclicString
+___
+You're given a substring s of some cyclic string. What's the length of the smallest possible string that can be concatenated to itself many times to obtain this cyclic string?
+
+Example:
+* For `s = "cabca"`, the output should be `solution(s) = 3`.
+
+`"cabca"` is a substring of a cycle string `"abcabcabcabc..."` that can be obtained by concatenating `"abc"` to itself. Thus, the answer is 3.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/CyclicString.js)
+```javascript
+function solution(s) {
+    let length = 1;
+    while (s.slice(0, length).repeat(s.length).slice(0, s.length) != s)
+        length++;
+    return length;
+}
+```
+
 # StringsCrossover
 ___
 Define crossover operation over two equal-length strings A and B as follows:
