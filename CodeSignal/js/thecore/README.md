@@ -1,3 +1,50 @@
+# PairOfShoes
+___
+Yesterday you found some shoes in the back of your closet. Each shoe is described by two values:
+
+* type indicates if it's a left or a right shoe;
+* size is the size of the shoe.
+
+Your task is to check whether it is possible to pair the shoes you found in such a way that each pair consists of a right and a left shoe of an equal size.
+
+Example:
+* For
+
+```
+shoes = [[0, 21], 
+         [1, 23], 
+         [1, 21], 
+         [0, 23]]
+```
+the output should be `solution(shoes) = true`;
+
+* For
+
+```
+shoes = [[0, 21], 
+         [1, 23], 
+         [1, 21], 
+         [1, 23]]
+```
+the output should be `solution(shoes) = false`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/PairOfShoes.js)
+```javascript
+function solution(shoes) {
+    let pairs = {};
+    for(let e of shoes){
+        if( pairs[e[1]] == undefined)
+            pairs[e[1]] = 0;
+        if(e[0]){
+            pairs[e[1]]++;
+        } else {
+            pairs[e[1]]--;
+        }
+    }
+    return Object.values(pairs).every(e => e == 0);
+}
+```
+
 # ArrayPreviousLess
 ___
 Given array of integers, for each position `i`, search among the previous positions for the last (from the left) position that contains a smaller value. Store this value at position `i` in the answer. If no such value can be found, store `-1` instead.
