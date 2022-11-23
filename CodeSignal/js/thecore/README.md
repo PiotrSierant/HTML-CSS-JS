@@ -1,3 +1,29 @@
+# StringsCrossover
+___
+Define crossover operation over two equal-length strings A and B as follows:
+
+* the result of that operation is a string of the same length as the input strings
+* `result[i]` is either A[i] or B[i], chosen at random
+
+Given array of strings `inputArray` and a string `result`, find for how many pairs of strings from `inputArray` the result of the crossover operation over them may be equal to `result`.
+
+Note that (A, B) and (B, A) are the same pair. Also note that the pair cannot include the same element of the array twice (however, if there are two equal elements in the array, they can form a pair).
+
+Example:
+* For `inputArray = ["abc", "aaa", "aba", "bab"]` and `result = "bbb"`, the output should be `solution(inputArray, result) = 2`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/StringsCrossover.js)
+```javascript
+function solution(inputArray, result) {
+    let res = result.split("")
+    return inputArray.reduce((ti,ai,i)=>
+                ti+inputArray.slice(i+1).reduce((tj,aj,j)=>
+                    res.every((l,k)=>l==ai[k]||l==aj[k]) ? tj+1 : tj
+                 ,0)
+            ,0)
+}
+```
+
 # Combs
 ___
 Miss X has only two solution in her possession, both of which are old and miss a tooth or two. She also has many purses of different length, in which she carries the solution. The only way they fit is horizontally and without overlapping. Given teeth' positions on both solution, find the minimum length of the purse she needs to take them with her.
