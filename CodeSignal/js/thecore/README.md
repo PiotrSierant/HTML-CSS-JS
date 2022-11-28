@@ -1,3 +1,50 @@
+# ChristmasTree
+___
+It's Christmas time! To share his Christmas spirit with all his friends, the young Christmas Elf decided to send each of them a Christmas e-mail with a nice Christmas tree. Unfortunately, Internet traffic is very expensive in the North Pole, so instead of sending an actual image he got creative and drew the tree using nothing but asterisks ('*' symbols). He has given you the specs (see below) and your task is to write a program that will generate trees following the spec and some initial parameters.
+
+Example:
+```
+                ___ 
+        *          |
+        *          | -- the crown
+       ***      ___|
+      *****        |
+     *******       | -- level 1
+    *********      |
+   ***********  ___|
+     *******       |
+    *********      | -- level 2
+   ***********     |
+  ************* ___|
+      *****        | -- the foot
+      *****     ___|
+```
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/ChristmasTree.js)
+```javascript
+function solution(levelNum, levelHeight) {
+  f = s => tree.push(" ".repeat(max - s.length >> 1) + s);
+  max = levelNum + levelHeight << 1 | 1;
+  tree = [];
+  f("*");
+  f("*");
+  f("***");
+  w = 3;
+  for (i = 0; i < levelNum; i++) {
+    curr = w += 2;
+    for (j = 0; j < levelHeight; j++) {
+      f("*".repeat(curr))
+      curr += 2;
+    }
+  }
+  for (i = 0; i < levelNum; i++) {
+    f("*".repeat(levelHeight | 1))
+
+  }
+  return tree;
+}
+```
+
 # FileNaming
 ___
 You are given an array of strings `names` representing filenames. The array is sorted in order of file creation, such that `names[i]` represents the name of a file created before `names[i+1]` and after `names[i-1]` (assume 0-based indexing). Because all files must have unique names, files created later with the same name as a file created earlier should have an additional `(k)` suffix in their names, where `k` is the smallest positive integer (starting from 1) that does not appear in previous file `names`.
