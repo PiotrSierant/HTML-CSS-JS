@@ -1,3 +1,28 @@
+# FileNaming
+___
+You are given an array of strings `names` representing filenames. The array is sorted in order of file creation, such that `names[i]` represents the name of a file created before `names[i+1]` and after `names[i-1]` (assume 0-based indexing). Because all files must have unique names, files created later with the same name as a file created earlier should have an additional `(k)` suffix in their names, where `k` is the smallest positive integer (starting from 1) that does not appear in previous file `names`.
+
+Your task is to iterate through all elements of names (from left to right) and update all filenames based on the above. Return an array of proper filenames.
+
+Example:
+* For `names = ["doc", "doc", "image", "doc(1)", "doc"]`, the output should be `solution(names) = ["doc", "doc(1)", "image", "doc(1)(1)", "doc(2)"]`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/FileNaming.js)
+```javascript
+function solution(names) {
+  let givenNames = new Set()
+  return names.map(name => {
+    let newName = name
+    let i = 1
+    while (givenNames.has(newName)) {
+      newName = name + "(" + i++ + ")"
+    }
+    givenNames.add(newName)
+    return newName
+  })
+}
+```
+
 # BeautifulText
 ___
 Consider a string containing only letters and whitespaces. It is allowed to replace some (possibly, none) whitespaces with newline symbols to obtain a multiline text. Call a multiline text beautiful if and only if each of its lines (i.e. substrings delimited by a newline character) contains an equal number of characters (only letters and whitespaces should be taken into account when counting the total while newline characters shouldn't). Call the length of the line the text width.
