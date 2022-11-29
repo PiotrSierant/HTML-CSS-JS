@@ -1,3 +1,34 @@
+# AreIsomorphic
+___
+Two two-dimensional arrays are isomorphic if they have the same number of rows and each pair of respective rows contains the same number of elements.
+
+Given two two-dimensional arrays, check if they are isomorphic.
+
+Example:
+* For
+```
+array1 = [[1, 1, 1],
+[0, 0]]
+```
+and
+```
+
+array2 = [[2, 1, 1],
+[2, 1]]
+```
+the output should be `solution(array1, array2) = true`;
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/AreIsomorphic.js)
+```javascript
+function solution(array1, array2) {
+    if(array1.length !== array2.length) return false
+    for(let i = 0; i < array1.length; i++) {
+        if(array1[i].length !== array2[i].length) return false
+    }
+    return true
+}
+```
+
 # ExtractMatrixColumn
 ___
 Given a rectangular matrix and an integer column, return an array containing the elements of the columnth column of the given matrix (the leftmost column is the 0th one).
@@ -10,7 +41,7 @@ matrix = [[1, 1, 1, 2],
 [2, 1, 3, 6]]
 ```
 and `column = 2`, the output should be `solution(matrix, column) = [1, 0, 3]`.
-`
+
 [My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/ExtractMatrixColumn.js)
 ```javascript
 function solution(matrix, column) {
