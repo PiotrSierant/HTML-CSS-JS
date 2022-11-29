@@ -1,3 +1,23 @@
+# ExtractMatrixColumn
+___
+Given a rectangular matrix and an integer column, return an array containing the elements of the columnth column of the given matrix (the leftmost column is the 0th one).
+
+Example:
+* For
+```text
+matrix = [[1, 1, 1, 2],
+[0, 5, 0, 4],
+[2, 1, 3, 6]]
+```
+and `column = 2`, the output should be `solution(matrix, column) = [1, 0, 3]`.
+`
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/ExtractMatrixColumn.js)
+```javascript
+function solution(matrix, column) {
+    return matrix.map(val => val[column]);
+}
+```
+
 # ChristmasTree
 ___
 It's Christmas time! To share his Christmas spirit with all his friends, the young Christmas Elf decided to send each of them a Christmas e-mail with a nice Christmas tree. Unfortunately, Internet traffic is very expensive in the North Pole, so instead of sending an actual image he got creative and drew the tree using nothing but asterisks ('*' symbols). He has given you the specs (see below) and your task is to write a program that will generate trees following the spec and some initial parameters.
