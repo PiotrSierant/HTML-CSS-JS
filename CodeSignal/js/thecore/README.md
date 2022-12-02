@@ -1,3 +1,25 @@
+# CrossingSum
+___
+Given a rectangular matrix and integers `a` and `b`, consider the union of the ath row and the bth (both 0-based) column of the matrix (i.e. all cells that belong either to the ath row or to the bth column, or to both). Return sum of all elements of that union.
+
+Example:
+* For
+```
+matrix = [[1, 1, 1, 1], 
+          [2, 2, 2, 2], 
+          [3, 3, 3, 3]]
+```
+`a = 1`, and `b = 3`, the output should be `solution(matrix, a, b) = 12`.
+
+Here `(2 + 2 + 2 + 2) + (1 + 3) = 12`.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/CrossingSum.js)
+```javascript
+function solution(matrix, a, b) {
+    return matrix[a].reduce((x,y)=>x+y) + matrix.reduce((x,y)=>x+y[b],0) - matrix[a][b]
+}
+```
+
 # SwapDiagonals
 ___
 The longest diagonals of a square matrix are defined as follows:
