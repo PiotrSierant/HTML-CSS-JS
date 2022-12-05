@@ -1,3 +1,24 @@
+# Minesweeper
+___
+In the popular Minesweeper game you have a board with some mines and those cells that don't contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/Minesweeper.js)
+```javascript
+const directions = [
+    [-1,-1], [-1, 0], [-1, 1],
+    [ 0,-1],          [ 0, 1],
+    [ 1,-1], [ 1, 0], [ 1, 1]
+];
+
+function solution(matrix) {
+
+  return matrix.map((row, y) => row.map((col, x) => directions.reduce((count, i) => {
+    return count += !!(matrix[y + i[0]] && matrix[y + i[0]][x + i[1]])
+  }, 0)));
+  
+}
+```
+
 # Sudoku
 ___
 Sudoku is a number-placement puzzle. The objective is to fill a` 9 × 9 `grid with digits so that each column, each row, and each of the nine` 3 × 3` sub-grids that compose the grid contains all of the digits from `1` to `9`.
