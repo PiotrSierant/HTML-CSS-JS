@@ -1,3 +1,19 @@
+# Sudoku
+___
+Sudoku is a number-placement puzzle. The objective is to fill a` 9 × 9 `grid with digits so that each column, each row, and each of the nine` 3 × 3` sub-grids that compose the grid contains all of the digits from `1` to `9`.
+
+This algorithm should check if the given grid of numbers represents a correct solution to Sudoku.
+
+[My solution - Click me and check the whole solution + comments ](https://github.com/PiotrSierant/HTML-CSS-JS/blob/main/CodeSignal/js/thecore/Sudoku.js)
+```javascript
+const solution = grid =>
+  (fn => fn(grid) && 
+         fn(grid.map((val, idx) => val.map((_, i) => grid[i][idx]))) && 
+         fn(grid.map((val, idx) => val.map((_, i) => grid[(idx / 3 ^ 0) * 3 + i / 3 ^ 0][idx % 3 * 3 + i % 3]))))
+  (arr => arr.every(val => new Set(val).size === 9 && val.every(v => [1, 2, 3, 4, 5, 6, 7, 8, 9].includes(v))));
+
+```
+
 # StarRotation
 ___
 Consider a `(2k+1) × (2k+1)` square subarray of an integer integers matrix. Let's call the union of the square's two longest diagonals, middle column and middle row a star. Given the coordinates of the star's `center` in the `matrix` and its `width`, rotate it `45` · `t` degrees clockwise preserving position of all matrix elements that do not belong to the star.
